@@ -1,0 +1,45 @@
+.videoDisplay{
+    object{
+        width:100%;
+        max-width: 900px;
+        height: 50vh;
+        margin: 20px auto;
+        display: block;
+    }
+    h3{
+        max-width: 900px;
+        margin: 0 auto;
+        font-size: 20px;
+        @media screen and (max-width: 640px) {
+            font-size: 16px;
+        }
+    }
+}
+.videoBox{
+    padding:0;
+    text-align: center;
+    li{
+        //width: 16.666%;
+        display: inline-block;
+        vertical-align: top;
+        padding: 10px;
+        embed{
+            display: block;
+        }
+        img{
+            max-width: 100%;
+        }
+        h4{
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+            padding: 5px 0;
+            @media screen and (max-width: 640px) {
+                font-size: 14px;
+            }
+            @media screen and (max-width: 575px) {
+                font-size: 16px;
+            }
+        }
+    }
+}

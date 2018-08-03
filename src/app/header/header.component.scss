@@ -1,0 +1,19 @@
+.topMenu{
+    background: #333;
+    min-height: 80px;
+    li{
+        display: flex;
+        a{
+            color: #fff;
+            float: left;
+            align-self: center;
+        }
+        img{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            align-self: center;
+        }
+    }
+    
+}

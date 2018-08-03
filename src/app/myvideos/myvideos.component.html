@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="container-fluid">
+  <div class="sliderContainer videoSlider">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="i" [ngClass]="{'active':i === 0}" *ngFor="let latestVideo of latestVideos; let i = index"></li>
+        </ul>
+        <!-- The slideshow -->
+        <div class="carousel-inner">
+          <div class="carousel-item" [ngClass]="{'active':i === 0}" *ngFor="let latestVideo of latestVideos; let i = index">
+            <img [src]="thunbnailURL(latestVideo.lastCode)" alt="" (click)="openVideo(latestVideo)">
+          </div>
+        </div>
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+  </div>
+  <input type="text" [(ngModel)]="searchText" placeholder="Search video" class="searchVideos">
+  <ul class="videoBox">
+    <li *ngFor="let item of urlArr  | filter : searchText" class="col-lg-2 col-md-3 col-sm-4">
+      <img [src]="thunbnailURL(item.videocode)" alt="" (click)="openVideo(item.videocode, item.videoCat)">
+      <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
+      <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+    </li>
+  </ul>
+</div>

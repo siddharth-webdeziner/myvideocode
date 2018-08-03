@@ -1,0 +1,22 @@
+<ul class="nav topMenu">
+  <li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" [routerLink]="['/myvideos']">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Latest Videos</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" *ngIf="!auth" [routerLink]="['/login']">Login</a>
+    <a class="nav-link" href="javascript:void(0)" *ngIf="auth" (click)="logout()">Logout</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="javascript:void(0)" (click)="changeTheme()">Change Theme</a>
+  </li>
+  <li class="nav-item" *ngIf="auth">
+    <a class="nav-link" href="javascript:void(0)" [routerLink]="['/addvideos']">Add Videos</a>
+  </li>
+  <li class="nav-item" *ngIf="auth">
+    <a class="nav-link" href="javascript:void(0)">Welcome {{auth.username}}</a>
+    <img [src]="auth.userimg" alt="profileimg">
+  </li>
+</ul>
