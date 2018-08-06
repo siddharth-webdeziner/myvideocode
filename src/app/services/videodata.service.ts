@@ -11,8 +11,8 @@ export class VideodataService {
   public messageSource = new BehaviorSubject('default message');
   currentMessage = this.messageSource.asObservable();
   constructor(private http : Http) {
-    //this.url  = 'https://mynewapplication123.herokuapp.com/'
-    this.url  = 'http://localhost:5000/'
+    this.url  = 'https://mynewapplication123.herokuapp.com/'
+    //this.url  = 'http://localhost:5000/'
   }
 
   getVideoData(){
