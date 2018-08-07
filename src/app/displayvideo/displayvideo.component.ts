@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { VideodataService } from '../services/videodata.service';
@@ -22,6 +22,7 @@ export class DisplayvideoComponent implements OnInit {
   constructor(
     public sanitizer: DomSanitizer,
     private route: ActivatedRoute,
+    private router: Router,
     private http: HttpClient, 
     public videodataService: VideodataService,
     private spinnerService: Ng4LoadingSpinnerService
@@ -53,14 +54,14 @@ export class DisplayvideoComponent implements OnInit {
 
   loadRelatedVideos(category){
     this.videodataService.getVideoData().subscribe(data => {
-      for(let i=0;i< data.user.length;i++){
-        if(data.user[i].cat == category){
-          this.catArr.push(data.user[i]);
+      for(let i=0;i< data.videolist.length;i++){
+        if(data.videolist[i].videoCat == category){
+          this.catArr.push(data.videolist[i]);
         }
       }
     });
-    // setTimeout(()=>{    //<<<---    using ()=> syntax
-    //   this.spinnerService.hide();
-    // },2000);
+  }
+  openVideo(item){
+    this.router.navigate(['/displayvideo', { embedcode: item.videocode, category: item.videoCat, title: item.videotitle}]);
   }
 }

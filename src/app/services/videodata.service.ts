@@ -20,7 +20,8 @@ export class VideodataService {
           'x-access-token': (localStorage.getItem('token'))
       }
     };
-    return this.http.get(this.url+"videolist", this.config).map(res => {
+    //return this.http.get(this.url+"videolist", this.config).map(res => {
+    return this.http.get(this.url+"videolist").map(res => {
       console.log("res.json() : ", res.json());
       //this.messageSource.next(res.json())
       this.currentMessage = res.json();

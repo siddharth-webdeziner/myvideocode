@@ -16,6 +16,9 @@ export class MyvideosComponent implements OnInit {
   characters:any = [];
   videoUrl:any;
   latestVideos:any = [];
+  searchText:any;
+  item:any;
+  nocontent:any;
   constructor(
     public sanitizer: DomSanitizer,
     private router: Router,
@@ -47,8 +50,7 @@ export class MyvideosComponent implements OnInit {
   }
 
   openVideo(item){
-    console.log("item :",item)
-    this.router.navigate(['/displayvideo', { embedcode: item.lastCode, category: item.cat, title: item.desc }]);
+    this.router.navigate(['/displayvideo', { embedcode: item.videocode, category: item.videoCat, title: item.videotitle}]);
   }
 
   latestSilderVideos(){
@@ -57,11 +59,6 @@ export class MyvideosComponent implements OnInit {
       if(this.urlArr[i].cat == "Latest videos"){
         this.latestVideos.push(this.urlArr[i]);
       }
-    }
-    // setTimeout(()=>{    //<<<---    using ()=> syntax
-    //   this.spinnerService.hide();
-    // },2000);
-    
+    }    
   }
-
 }
