@@ -19,6 +19,7 @@ import { MyvideosComponent } from './myvideos/myvideos.component';
 import { NewvideosDirective } from './directives/newvideos.directive';
 import { SqrtPipe } from './pipe/sqrt'
 import { FilterPipe} from './filter.pipe';
+import { VideoFilterPipe} from './videofilter.pipe';
 import { LoginComponent } from './login/login.component';
 import { DisplayvideoComponent } from './displayvideo/displayvideo.component';
 import { HeaderComponent } from './header/header.component';
@@ -48,6 +49,7 @@ export function getAuthServiceConfigs() {
     MyvideosComponent,
     NewvideosDirective,
     FilterPipe,
+    VideoFilterPipe,
     LoginComponent,
     DisplayvideoComponent,
     HeaderComponent,

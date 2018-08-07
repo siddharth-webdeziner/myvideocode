@@ -1,12 +1,16 @@
 <app-header></app-header>
 <div class="container-fluid">
   <div class="sliderContainer videoDisplay">
+    <br>
+    <h3>{{category}}</h3>
     <object [data]='videoURL(playbackurl)'></object>
+    <!-- <object data="http://www.youtube.com/embed/W7qWa52k-nE"
+   width="560" height="315"></object> -->
     <h3>{{title}}</h3>
   </div>
   <ul class="videoBox">
     <li *ngFor="let item of catArr" class="col-lg-2 col-md-3 col-sm-4">
-      <img [src]="thunbnailURL(item.lastCode)" alt="" (click)="openVideo(item.lastCode)" data-toggle="modal" data-target="#myModal">
+      <img [src]="thunbnailURL(item.videocode)" alt="" (click)="openVideo(item)" data-toggle="modal" data-target="#myModal">
       <h4 *ngIf="item.desc !=''">{{item.desc}}</h4>
       <h4 *ngIf="item.desc ==''">Title is not defined</h4>
     </li>
