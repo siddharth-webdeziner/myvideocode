@@ -3,6 +3,7 @@
   <input type="text" [(ngModel)]="searchText" placeholder="Search video" class="searchVideos">
   <ul class="videoBox">
     <li *ngFor="let item of urlArr | filter : searchText" class="col-lg-2 col-md-3 col-sm-4">
+      <span (click)="deleteVideo(item._id)" title="Delete video" class="crossSign" *ngIf="auth && admin">X</span>
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="">
         <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
@@ -44,9 +45,9 @@
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
   </ul>
-  <h3>New Movies</h3>
+  <h3>Movies</h3>
   <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'newmovies'" class="col-lg-2 col-md-3 col-sm-4">
+    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'movies'" class="col-lg-2 col-md-3 col-sm-4">
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="">
         <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
@@ -55,7 +56,7 @@
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
   </ul>
-  <h3>Old Movies</h3>
+  <!-- <h3>Old Movies</h3>
   <ul class="videoBox">
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'oldmovies'" class="col-lg-2 col-md-3 col-sm-4">
       <div (click)="openVideo(item)">
@@ -65,7 +66,7 @@
       </div>
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
-  </ul>
+  </ul> -->
   <h3>Web series</h3>
   <ul class="videoBox">
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'webseries'" class="col-lg-2 col-md-3 col-sm-4">

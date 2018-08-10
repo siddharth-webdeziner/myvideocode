@@ -1,6 +1,7 @@
+<app-header></app-header>
 <div class="container">
     <div class="formContainer">
-      <h3>Admin Login 111</h3>
+      <h3>Login</h3>
       <form #userForm="ngForm" (ngSubmit)="adminLoginSubmit(userForm)">
         <div class="form-group">
           <label for="code">Username: </label>
@@ -14,9 +15,12 @@
           <button  class="btn btn-primary">Submit</button> 
           <button type="button" [routerLink]="['home']"  class="btn btn-primary">Cancel</button>
         </div>
-        <button (click)="socialSignIn('facebook')">Sign in with Facebook</button>
-        <button (click)="socialSignIn('google')">Signin in with Google</button> 
+        
+      <button class="fb-btn" (click)="socialSignIn('facebook')">
+          <a href="javascript:void(0)" class="fa fa-facebook"></a>
+          Sign in with Facebook
+        </button>
+        <!-- <button (click)="socialSignIn('google')">Signin in with Google</button>  -->
       </form>
-      <a href="javascript:void(0)" [routerLink]="['/myvideos']">Move to videos</a>
     </div>
   </div>

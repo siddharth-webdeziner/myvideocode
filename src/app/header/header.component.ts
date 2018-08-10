@@ -27,8 +27,6 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem("selectedTheme", "lightTheme");
     }
     this.auth = JSON.parse(localStorage.getItem('userObj'));
-    console.log("this.auththis.auththis.auth : ", this.auth);
-    console.log(localStorage.getItem('userObj'));
   }
 
   changeTheme(){
@@ -44,7 +42,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(){
-    console.log("yes !!")
     localStorage.removeItem("userObj");
     localStorage.removeItem("token");
     this.router.navigateByUrl('/login');

@@ -36,14 +36,12 @@ export class LoginComponent implements OnInit {
     var loginArr = [];
     localStorage.removeItem("LoginData");
     loginArr.push(userForm.value);
-    console.log("this.loginArr this.loginArr : ", loginArr)
     this.videodataService.loginUser(userForm.value).subscribe(data => {
-      console.log("data : ",data.token)
       if(data.token){
-        this.router.navigateByUrl('/home');
-        console.log(data.userObj);
+        this.router.navigateByUrl('/myvideos');
         localStorage.setItem("userObj",JSON.stringify(data.userObj[0]));
         localStorage.setItem("token",JSON.stringify(data.token));
+
       }
     });
   }
@@ -52,16 +50,14 @@ export class LoginComponent implements OnInit {
     let socialPlatformProvider;
     if(socialPlatform == "facebook"){
       socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
-      console.log(socialPlatformProvider);
     }else if(socialPlatform == "google"){
       socialPlatformProvider = GoogleLoginProvider.PROVIDER_ID;
-      console.log(socialPlatformProvider);
     }
     
     this.socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
           this.videodataService.registerUser(userData).subscribe(data => {
-            if(data.userObj[0]){
+            if(data.userObj[0]) {
               this.router.navigateByUrl('/myvideos');
               localStorage.setItem("userObj",JSON.stringify(data.userObj[0]));
               localStorage.setItem("token",JSON.stringify(data.token));

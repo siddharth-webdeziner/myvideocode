@@ -19,6 +19,8 @@ export class MyvideosComponent implements OnInit {
   searchText:any;
   item:any;
   nocontent:any;
+  auth:any;
+  admin:any;
   constructor(
     public sanitizer: DomSanitizer,
     private router: Router,
@@ -30,6 +32,13 @@ export class MyvideosComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.auth = JSON.parse(localStorage.getItem('userObj'));
+    if(this.auth){
+      console.log(this.auth.username);
+      if(this.auth.username == 'Siddharth Shahi'){
+        this.admin = true;
+      }
+    }
     this.gettingVideoData();
   }
 
@@ -61,4 +70,11 @@ export class MyvideosComponent implements OnInit {
       }
     }    
   }
+  deleteVideo(id){
+    this.videodataService.deleteVideoData(id).subscribe(data => {
+      this.gettingVideoData()
+      this.latestSilderVideos();
+    })
+  }
+
 }
