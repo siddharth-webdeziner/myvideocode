@@ -24,6 +24,7 @@ import { LoginComponent } from './login/login.component';
 import { DisplayvideoComponent } from './displayvideo/displayvideo.component';
 import { HeaderComponent } from './header/header.component';
 import { LoaderComponent } from './loader/loader.component';
+import { RegisteruserComponent } from './registeruser/registeruser.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -53,7 +54,8 @@ export function getAuthServiceConfigs() {
     LoginComponent,
     DisplayvideoComponent,
     HeaderComponent,
-    LoaderComponent
+    LoaderComponent,
+    RegisteruserComponent
   ],
   imports: [
     BrowserModule,

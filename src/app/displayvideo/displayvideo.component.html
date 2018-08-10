@@ -8,6 +8,7 @@
    width="560" height="315"></object> -->
     <h3>{{title}}</h3>
   </div>
+  <br />
   <ul class="videoBox">
     <li *ngFor="let item of catArr" class="col-lg-2 col-md-3 col-sm-4">
       <img [src]="thunbnailURL(item.videocode)" alt="" (click)="openVideo(item)" data-toggle="modal" data-target="#myModal">

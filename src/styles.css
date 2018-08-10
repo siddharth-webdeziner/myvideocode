@@ -1,13 +1,15 @@
 body{
     min-height: 100%;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
 }
 .lightTheme{
-    background: url(assets/images/background.jpg);
+    background-image: url(assets/images/background.jpg);
 }
 
 .darkTheme{
-    background: url(assets/images/darkimage.jpg);
+    background-image: url(assets/images/darkimage.jpg);
 }
 
 .darkTheme *{

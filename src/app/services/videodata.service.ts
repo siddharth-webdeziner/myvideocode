@@ -42,7 +42,9 @@ export class VideodataService {
     return this.http.post(this.url+"adduser",{
       "username": user.name,
       "email": user.email,
-      "userimg": user.image
+      "userimg": user.image,
+      "password": user.password,
+      "phone": user.phone
     }).map(res => {
       return res.json()
     })
@@ -56,6 +58,14 @@ export class VideodataService {
       "videocat": user.category
     }).map(res => {
       return res.json()
+    })
+  }
+
+  deleteVideoData(id) {
+    return this.http.post(this.url+"deletevideo/"+id,{
+    }).map(res => {
+      console.log("deleted");
+      return res.json();
     })
   }
 
