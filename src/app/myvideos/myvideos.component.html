@@ -3,11 +3,18 @@
   <input type="text" [(ngModel)]="searchText" placeholder="Search video" class="searchVideos">
   <ul class="videoBox">
     <li *ngFor="let item of urlArr | filter : searchText" class="col-lg-2 col-md-3 col-sm-4">
-      <span (click)="deleteVideo(item._id)" title="Delete video" class="crossSign" *ngIf="auth && admin">X</span>
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="">
-        <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
+        <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+        <div class="otherOptions">
+            <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth">
+            <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
+            <i class="fa fa-close" style="font-size:20px"></i>
+          </span>
+        </div>
       </div>
     </li>
     <li *ngIf="item"><h6>No Content Available</h6></li>
@@ -17,8 +24,16 @@
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'popular'" class="col-lg-2 col-md-3 col-sm-4">
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="">
-        <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
+        <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+        <div class="otherOptions">
+          <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth">
+            <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
+            <i class="fa fa-close" style="font-size:20px"></i>
+          </span>
+        </div>
       </div>
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
@@ -28,8 +43,16 @@
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'trailer'; let i = index" class="col-lg-2 col-md-3 col-sm-4">
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="">
-        <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
+        <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+        <div class="otherOptions">
+          <span class="saveVideo" *ngIf="auth">
+            <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
+            <i class="fa fa-close" style="font-size:20px"></i>
+          </span>
+        </div>
       </div>
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
@@ -39,8 +62,16 @@
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'comedy'" class="col-lg-2 col-md-3 col-sm-4">
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="" />
-        <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
+        <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+        <div class="otherOptions">
+          <span class="saveVideo" *ngIf="auth">
+            <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
+            <i class="fa fa-close" style="font-size:20px"></i>
+          </span>
+        </div>
       </div>
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
@@ -50,8 +81,16 @@
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'movies'" class="col-lg-2 col-md-3 col-sm-4">
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="">
-        <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
+        <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+        <div class="otherOptions">
+          <span class="saveVideo" *ngIf="auth">
+            <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
+            <i class="fa fa-close" style="font-size:20px"></i>
+          </span>
+        </div>
       </div>
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
@@ -61,8 +100,16 @@
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'oldmovies'" class="col-lg-2 col-md-3 col-sm-4">
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="">
-        <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
+        <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+        <div class="otherOptions">
+          <span class="saveVideo" *ngIf="auth">
+            <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
+            <i class="fa fa-close" style="font-size:20px"></i>
+          </span>
+        </div>
       </div>
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
@@ -72,8 +119,16 @@
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'webseries'" class="col-lg-2 col-md-3 col-sm-4">
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="">
-        <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
+        <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+        <div class="otherOptions">
+          <span class="saveVideo" *ngIf="auth">
+            <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
+            <i class="fa fa-close" style="font-size:20px"></i>
+          </span>
+        </div>
       </div>
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
@@ -83,8 +138,16 @@
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'sports'" class="col-lg-2 col-md-3 col-sm-4">
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="">
-        <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
+        <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+        <div class="otherOptions">
+          <span class="saveVideo" *ngIf="auth">
+            <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
+            <i class="fa fa-close" style="font-size:20px"></i>
+          </span>
+        </div>
       </div>
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
@@ -94,8 +157,16 @@
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'angular'" class="col-lg-2 col-md-3 col-sm-4">
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="">
-        <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
+        <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+        <div class="otherOptions">
+          <span class="saveVideo" *ngIf="auth">
+            <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
+            <i class="fa fa-close" style="font-size:20px"></i>
+          </span>
+        </div>
       </div>
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
@@ -105,8 +176,16 @@
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'tvf'" class="col-lg-2 col-md-3 col-sm-4">
       <div (click)="openVideo(item)">
         <img [src]="thunbnailURL(item.videocode)" alt="">
-        <h4 *ngIf="item.videotitle !=''">{{item.videotitle}}</h4>
+        <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+        <div class="otherOptions">
+          <span class="saveVideo" *ngIf="auth">
+            <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
+            <i class="fa fa-close" style="font-size:20px"></i>
+          </span>
+        </div>
       </div>
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>

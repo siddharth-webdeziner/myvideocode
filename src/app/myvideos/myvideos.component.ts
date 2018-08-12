@@ -34,7 +34,7 @@ export class MyvideosComponent implements OnInit {
   ngOnInit() {
     this.auth = JSON.parse(localStorage.getItem('userObj'));
     if(this.auth){
-      console.log(this.auth.username);
+      console.log(">>>>>>>>>>>>>>>> ", this.auth);
       if(this.auth.username == 'Siddharth Shahi'){
         this.admin = true;
       }
@@ -72,6 +72,13 @@ export class MyvideosComponent implements OnInit {
   }
   deleteVideo(id){
     this.videodataService.deleteVideoData(id).subscribe(data => {
+      this.gettingVideoData()
+      this.latestSilderVideos();
+    })
+  }
+
+  saveVideo(item){
+    this.videodataService.saveVideoData(item,this.auth.email).subscribe(data => {
       this.gettingVideoData()
       this.latestSilderVideos();
     })
