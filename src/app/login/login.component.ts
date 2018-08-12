@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl('/myvideos');
         localStorage.setItem("userObj",JSON.stringify(data.userObj[0]));
         localStorage.setItem("token",JSON.stringify(data.token));
-
       }
     });
   }

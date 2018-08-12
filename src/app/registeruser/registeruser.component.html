@@ -11,6 +11,10 @@
     <form #userForm="ngForm" (ngSubmit)="registerSubmit(userForm)">
       <div class="form-group">
         <label for="code">Username: </label>
+        <input type="file" name="uploadimg" ngModel required #uploadimg="ngModel" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="code">Username: </label>
         <input name="name" ngModel required #name="ngModel" class="form-control">
       </div>
       <div class="form-group">

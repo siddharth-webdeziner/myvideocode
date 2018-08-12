@@ -42,7 +42,7 @@ export class VideodataService {
     return this.http.post(this.url+"adduser",{
       "username": user.name,
       "email": user.email,
-      "userimg": user.image,
+      "userimg": user.uploadimg,
       "password": user.password,
       "phone": user.phone
     }).map(res => {
@@ -66,6 +66,25 @@ export class VideodataService {
     }).map(res => {
       console.log("deleted");
       return res.json();
+    })
+  }
+  saveVideoData(itemData,email){
+    return this.http.post(this.url+"savevideo/",{
+      "videocode": itemData.videocode,
+      "videotitle": itemData.videotitle,
+      "videocat": itemData.videocat,
+      "emailId": email
+    }).map(res => {
+      console.log("saved");
+      return res.json();
+    })
+  }
+
+  getSavedVideoData(){
+    return this.http.get(this.url+"savedvideolist").map(res => {
+      console.log("res.json() : ", res.json());
+      this.currentMessage = res.json();
+      return res.json()
     })
   }
 
