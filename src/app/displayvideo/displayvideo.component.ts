@@ -33,6 +33,7 @@ export class DisplayvideoComponent implements OnInit {
   ngOnInit() {
     this.paramsSubscription = this.route.params
       .subscribe((params) => {
+        console.log(params);
         this.playbackurl = params['embedcode'];
         this.category = params['category'];
         this.title = params['title'];
@@ -53,15 +54,28 @@ export class DisplayvideoComponent implements OnInit {
   }
 
   loadRelatedVideos(category){
+    console.log("categorycategorycategory : ", category)
     this.videodataService.getVideoData().subscribe(data => {
       for(let i=0;i< data.videolist.length;i++){
         if(data.videolist[i].videoCat == category){
           this.catArr.push(data.videolist[i]);
         }
       }
+      this.loadScript();
     });
+    
   }
   openVideo(item){
     this.router.navigate(['/displayvideo', { embedcode: item.videocode, category: item.videoCat, title: item.videotitle}]);
   }
+  public loadScript() {
+    let body = <HTMLDivElement> document.body;
+    let script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = '../../assets/js/scroller.js';
+    script.async = true;
+    script.defer = true;
+    body.appendChild(script);
+  }
+  
 }

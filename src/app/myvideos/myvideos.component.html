@@ -2,20 +2,26 @@
 <div class="container-fluid">
   <input type="text" [(ngModel)]="searchText" placeholder="Search video" class="searchVideos">
   <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText" class="col-lg-2 col-md-3 col-sm-4">
-      <div (click)="openVideo(item)">
-        <img [src]="thunbnailURL(item.videocode)" alt="">
-        <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
-        <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+    <li *ngFor="let item of urlArr | filter : searchText; let i = index" class="col-lg-2 col-md-3 col-sm-4">
+      <section>
+        <div (click)="openVideo(item)">
+          <img [src]="thunbnailURL(item.videocode)" alt="">
+          <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
+          <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+        </div>
         <div class="otherOptions">
-            <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth">
-            <i class="fa fa-save" style="font-size:20px;"></i>
+          <span class="saveVideo" *ngIf="auth">
+            <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
+            <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
+          </span>
+          <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
+            <i class="fa fa-heart" aria-hidden="true"></i>
           </span>
           <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
             <i class="fa fa-close" style="font-size:20px"></i>
           </span>
         </div>
-      </div>
+      </section>
     </li>
     <li *ngIf="item"><h6>No Content Available</h6></li>
   </ul>
@@ -27,8 +33,11 @@
         <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
         <div class="otherOptions">
-          <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth">
+          <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth" title="Save you Fav Video">
             <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span class="likeVideo" (click)="likeVideo()" *ngIf="auth" title="Like video">
+            <i class="far fa-heart"></i>
           </span>
           <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
             <i class="fa fa-close" style="font-size:20px"></i>
@@ -46,8 +55,11 @@
         <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
         <div class="otherOptions">
-          <span class="saveVideo" *ngIf="auth">
+          <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth" title="Save you Fav Video">
             <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span class="likeVideo" (click)="likeVideo()" *ngIf="auth" title="Like video">
+            <i class="far fa-heart"></i>
           </span>
           <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
             <i class="fa fa-close" style="font-size:20px"></i>
@@ -65,8 +77,11 @@
         <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
         <div class="otherOptions">
-          <span class="saveVideo" *ngIf="auth">
+          <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth" title="Save you Fav Video">
             <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span class="likeVideo" (click)="likeVideo()" *ngIf="auth" title="Like video">
+            <i class="far fa-heart"></i>
           </span>
           <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
             <i class="fa fa-close" style="font-size:20px"></i>
@@ -84,8 +99,11 @@
         <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
         <div class="otherOptions">
-          <span class="saveVideo" *ngIf="auth">
+          <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth" title="Save you Fav Video">
             <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span class="likeVideo" (click)="likeVideo()" *ngIf="auth" title="Like video">
+            <i class="far fa-heart"></i>
           </span>
           <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
             <i class="fa fa-close" style="font-size:20px"></i>
@@ -103,8 +121,11 @@
         <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
         <div class="otherOptions">
-          <span class="saveVideo" *ngIf="auth">
+          <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth" title="Save you Fav Video">
             <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span class="likeVideo" (click)="likeVideo()" *ngIf="auth" title="Like video">
+            <i class="far fa-heart"></i>
           </span>
           <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
             <i class="fa fa-close" style="font-size:20px"></i>
@@ -122,8 +143,11 @@
         <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
         <div class="otherOptions">
-          <span class="saveVideo" *ngIf="auth">
+          <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth" title="Save you Fav Video">
             <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span class="likeVideo" (click)="likeVideo()" *ngIf="auth" title="Like video">
+            <i class="far fa-heart"></i>
           </span>
           <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
             <i class="fa fa-close" style="font-size:20px"></i>
@@ -141,8 +165,11 @@
         <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
         <div class="otherOptions">
-          <span class="saveVideo" *ngIf="auth">
+          <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth" title="Save you Fav Video">
             <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span class="likeVideo" (click)="likeVideo()" *ngIf="auth" title="Like video">
+            <i class="far fa-heart"></i>
           </span>
           <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
             <i class="fa fa-close" style="font-size:20px"></i>
@@ -160,8 +187,11 @@
         <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
         <div class="otherOptions">
-          <span class="saveVideo" *ngIf="auth">
+          <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth" title="Save you Fav Video">
             <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span class="likeVideo" (click)="likeVideo()" *ngIf="auth" title="Like video">
+            <i class="far fa-heart"></i>
           </span>
           <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
             <i class="fa fa-close" style="font-size:20px"></i>
@@ -179,8 +209,11 @@
         <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:40}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
         <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
         <div class="otherOptions">
-          <span class="saveVideo" *ngIf="auth">
+          <span (click)="saveVideo(item)" class="saveVideo" *ngIf="auth" title="Save you Fav Video">
             <i class="fa fa-save" style="font-size:20px;"></i>
+          </span>
+          <span class="likeVideo" (click)="likeVideo()" *ngIf="auth" title="Like video">
+            <i class="far fa-heart"></i>
           </span>
           <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth">
             <i class="fa fa-close" style="font-size:20px"></i>
