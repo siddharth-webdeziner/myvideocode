@@ -5,12 +5,16 @@ import {FormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+// Social login
 import {
   SocialLoginModule,
   AuthServiceConfig,
   GoogleLoginProvider,
   FacebookLoginProvider,
 } from "angular5-social-login";
+
+// import social buttons module
+import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
 
 
 import { AppComponent } from './app.component';
@@ -66,6 +70,7 @@ export function getAuthServiceConfigs() {
     HttpClientModule,
     HttpModule,
     SocialLoginModule,
+    JwSocialButtonsModule,
     Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [{

@@ -16,11 +16,13 @@ export class MyvideosComponent implements OnInit {
   characters:any = [];
   videoUrl:any;
   latestVideos:any = [];
+  savedVideos:any = [];
   searchText:any;
   item:any;
   nocontent:any;
   auth:any;
   admin:any;
+  activate:any;
   constructor(
     public sanitizer: DomSanitizer,
     private router: Router,
@@ -34,18 +36,17 @@ export class MyvideosComponent implements OnInit {
   ngOnInit() {
     this.auth = JSON.parse(localStorage.getItem('userObj'));
     if(this.auth){
-      console.log(">>>>>>>>>>>>>>>> ", this.auth);
-      if(this.auth.username == 'Siddharth Shahi'){
+      if(this.auth.username == 'siddharth'){
         this.admin = true;
       }
     }
     this.gettingVideoData();
+    this.gettingSavedVideoData(this.auth.email);
   }
 
   gettingVideoData(){
     this.videodataService.getVideoData().subscribe(data => {
       this.urlArr = data.videolist;
-      console.log("this.urlArr : ", this.urlArr);
       this.latestSilderVideos();
     })
   }
@@ -59,11 +60,10 @@ export class MyvideosComponent implements OnInit {
   }
 
   openVideo(item){
-    this.router.navigate(['/displayvideo', { embedcode: item.videocode, category: item.videoCat, title: item.videotitle}]);
+    this.router.navigate(['/displayvideo', { embedcode: item.videocode, category: item.videocat, title: item.videotitle}]);
   }
 
   latestSilderVideos(){
-    console.log("this.urlArr 123 : ", this.urlArr);
     for(let i=0;i< this.urlArr.length;i++){
       if(this.urlArr[i].cat == "Latest videos"){
         this.latestVideos.push(this.urlArr[i]);
@@ -77,11 +77,37 @@ export class MyvideosComponent implements OnInit {
     })
   }
 
-  saveVideo(item){
+  saveVideo(item, index){
     this.videodataService.saveVideoData(item,this.auth.email).subscribe(data => {
       this.gettingVideoData()
       this.latestSilderVideos();
+      this.activate = index;
     })
+  }
+
+  likeVideo(id){
+    this.videodataService.likeVideo(id).subscribe(data => {
+      this.gettingVideoData()
+      this.latestSilderVideos();
+    })
+  }
+
+  gettingSavedVideoData(email){
+    this.videodataService.getSavedVideoData(email).subscribe(data => {
+      for(var i = 0;i < data.videolist.length; i++){
+        if(data.videolist[i].email == this.auth.email){
+          this.savedVideos.push(data.videolist[i].videocode);
+        }
+      }
+    })
+  }
+
+  checkSavedVideo(videocode){
+    if(this.savedVideos.includes(videocode)){
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }

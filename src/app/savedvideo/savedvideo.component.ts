@@ -14,6 +14,7 @@ import { VideodataService } from '../services/videodata.service';
 })
 export class SavedvideoComponent implements OnInit {
   urlArr:any = [];
+  auth:any;
   constructor(
     public sanitizer: DomSanitizer,
     private router: Router,
@@ -23,13 +24,13 @@ export class SavedvideoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.gettingVideoData();
+    this.auth = JSON.parse(localStorage.getItem('userObj'));
+    this.gettingSavedVideoData(this.auth.email);
   }
 
-  gettingVideoData(){
-    this.videodataService.getSavedVideoData().subscribe(data => {
+  gettingSavedVideoData(emailid){
+    this.videodataService.getSavedVideoData(emailid).subscribe(data => {
       this.urlArr = data.videolist;
-      console.log("this.urlArr : ", this.urlArr);
     })
   }
 

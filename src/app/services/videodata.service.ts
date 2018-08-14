@@ -80,9 +80,17 @@ export class VideodataService {
     })
   }
 
-  getSavedVideoData(){
-    return this.http.get(this.url+"savedvideolist").map(res => {
-      console.log("res.json() : ", res.json());
+  getSavedVideoData(email){
+    return this.http.post(this.url+"savedvideoslist",{
+      "emailId": email
+    }).map(res => {
+      this.currentMessage = res.json();
+      return res.json()
+    })
+  }
+
+  likeVideo(id){
+    return this.http.get(this.url+"likevideo").map(res => {
       this.currentMessage = res.json();
       return res.json()
     })
