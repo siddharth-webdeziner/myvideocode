@@ -3,7 +3,8 @@
   <div class="sliderContainer videoDisplay">
     <div class="videoContainer">
       <h3>{{category}}</h3>
-      <object [data]='videoURL(playbackurl)'></object>
+      <object [data]='videoURL(playbackurl)' allowfullscreen=''>
+      </object>
       <h3>{{title}}</h3>
       <ul>
         <li class="fb-like">

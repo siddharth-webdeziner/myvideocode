@@ -54,14 +54,15 @@ export class DisplayvideoComponent implements OnInit {
   }
 
   loadRelatedVideos(category){
-    console.log("categorycategorycategory : ", category)
+    console.log("categorycategory : ", category);
     this.videodataService.getVideoData().subscribe(data => {
       for(let i=0;i< data.videolist.length;i++){
         if(data.videolist[i].videoCat == category){
           this.catArr.push(data.videolist[i]);
+          console.log("this.catArrthis.catArr : ", this.catArr);
         }
       }
-      this.loadScript();
+      //this.loadScript();
     });
     
   }

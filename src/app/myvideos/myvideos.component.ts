@@ -36,7 +36,7 @@ export class MyvideosComponent implements OnInit {
   ngOnInit() {
     this.auth = JSON.parse(localStorage.getItem('userObj'));
     if(this.auth){
-      if(this.auth.username == 'siddharth'){
+      if(this.auth.username == 'Siddharth Shahi'){
         this.admin = true;
       }
     }
@@ -81,7 +81,6 @@ export class MyvideosComponent implements OnInit {
     this.videodataService.saveVideoData(item,this.auth.email).subscribe(data => {
       this.gettingVideoData()
       this.latestSilderVideos();
-      this.activate = index;
     })
   }
 
