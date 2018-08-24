@@ -5,19 +5,19 @@
     <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">
       <div class="form-group">
         <label for="code">Video code: </label>
-        <input name="lastCode" ngModel required #lastCode="ngModel" class="form-control">
+        <input name="lastCode" ngModel required #lastCode="ngModel" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="code">Video title: </label>
-        <input name="desc" ngModel #desc="ngModel" class="form-control">
+        <input name="desc" ngModel #desc="ngModel" class="form-control" required>
       </div>
       <div class="form-group">
         <label for="code">Video Category: </label>
-        <input name="category" ngModel #category="ngModel" class="form-control">
+        <input name="category" ngModel #category="ngModel" class="form-control" required>
       </div>
       <div class="form-group">
         <button  class="btn btn-primary">Submit</button> 
-        <button type="button" (click)="resetUserForm(userForm)"  class="btn btn-primary">Reset</button>
+        <button type="button" (click)="resetUserForm(userForm)" class="btn btn-primary">Reset</button>
       </div>	  
     </form>
     <a href="javascript:void(0)" [routerLink]="['/myvideos']">Move to videos</a>

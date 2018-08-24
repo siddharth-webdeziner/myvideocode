@@ -11,7 +11,6 @@ import { VideodataService } from '../services/videodata.service';
   providers : [VideodataService]
 })
 export class AddvideosComponent implements OnInit {
-  urlArr:any = [];
   title:string;
   homecharacters:any = [];
   constructor(
@@ -31,10 +30,9 @@ export class AddvideosComponent implements OnInit {
   }
 
   onFormSubmit(userForm: NgForm) {
-    this.urlArr.push(userForm.value);
-    console.log("this.urlArrthis.urlArr : ", this.urlArr);
-    this.videodataService.addvideos(this.urlArr[0]).subscribe(data => {
-      console.log("dataaaaa: ", this.urlArr);
+    var urlArr = [];
+    urlArr.push(userForm.value);
+    this.videodataService.addvideos(urlArr[0]).subscribe(data => {
     });
     this.resetUserForm(userForm)
   }
