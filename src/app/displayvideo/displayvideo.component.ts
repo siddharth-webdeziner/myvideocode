@@ -50,7 +50,7 @@ export class DisplayvideoComponent implements OnInit {
   }
 
   videoURL(item){
-    return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/'+item);
+    return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/'+item+'?rel=0&showinfo=0&autoplay=1');
   }
 
   loadRelatedVideos(category){
@@ -63,8 +63,7 @@ export class DisplayvideoComponent implements OnInit {
         }
       }
       //this.loadScript();
-    });
-    
+    }); 
   }
   openVideo(item){
     this.router.navigate(['/displayvideo', { embedcode: item.videocode, category: item.videoCat, title: item.videotitle}]);
