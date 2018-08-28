@@ -32,7 +32,7 @@
   <nav id="pnProductNav" class="pn-ProductNav dragscroll">
   <div id="pnProductNavContents" class="pn-ProductNav_Contents">
     <ul class="videoBox">
-      <li *ngFor="let item of catArr" class="col-lg-2 col-md-3 col-sm-4">
+      <li *ngFor="let item of catArr | videofilter : category" class="col-lg-2 col-md-3 col-sm-4">
         <img [src]="thunbnailURL(item.videocode)" alt="" (click)="openVideo(item)" data-toggle="modal" data-target="#myModal">
         <h4 *ngIf="item.desc !=''">{{item.desc}}</h4>
         <h4 *ngIf="item.desc ==''">Title is not defined</h4>
