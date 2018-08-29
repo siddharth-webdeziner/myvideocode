@@ -59,27 +59,10 @@ export class DisplayvideoComponent implements OnInit {
       console.log("data.videolist.lengthdata.videolist.length", data.videolist.length)
       this.catArr = data.videolist;
       this.category = category;
-      // for(let i=0;i< data.videolist.length;i++){
-      //   console.log('====> '+ data.videolist[i].videocat +" :::::::::: "+category);
-      //   if(data.videolist[i].videocat == category){
-      //     this.catArr.push(data.videolist[i]);
-      //     console.log("this.catArrthis.catArr : ", this.catArr);
-      //   }
-      // }
-      //this.loadScript();
     }); 
   }
   openVideo(item){
     this.router.navigate(['/displayvideo', { embedcode: item.videocode, category: item.videoCat, title: item.videotitle}]);
-  }
-  public loadScript() {
-    let body = <HTMLDivElement> document.body;
-    let script = document.createElement('script');
-    script.innerHTML = '';
-    script.src = '../../assets/js/scroller.js';
-    script.async = true;
-    script.defer = true;
-    body.appendChild(script);
   }
   
 }

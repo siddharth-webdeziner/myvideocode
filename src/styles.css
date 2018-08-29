@@ -10,6 +10,7 @@ body{
 
 .darkTheme{
     background-image: url(assets/images/darkimage.jpg);
+    background-size: cover; 
 }
 
 .darkTheme *{
