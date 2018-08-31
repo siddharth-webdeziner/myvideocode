@@ -14,12 +14,6 @@ header{
             }
         }
     }
-    .menu-btn{
-        @media screen and (max-width: 768px) {
-            position: absolute;
-            right: 20px;
-        }
-    }
     .rightsection{
         float: right;
         display: flex;
@@ -65,5 +59,24 @@ header{
     }
     .header .rightsection.mobileProfile{
         display: flex;
+    }
+    #collapsibleNavbar .navbar-nav{
+        margin-top: 30px;
+    }
+    .menu-btn{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+    #collapsibleNavbar .navbar-nav a{
+        text-align: right;
+    }
+    .fixed-top{
+        max-height: 180px;
+    }
+    header .rightsection.webProfile{
+        position: absolute;
+        right: 20px;
+        top: 5px;
     }
 }
