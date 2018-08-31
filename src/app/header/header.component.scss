@@ -1,6 +1,7 @@
 header{
     background: #343a40 !important;
     min-height: 60px;
+    padding-top: 70px;
     .topMenu{
         float: left;
         min-height: 60px;
@@ -13,11 +14,20 @@ header{
             }
         }
     }
+    .menu-btn{
+        @media screen and (max-width: 768px) {
+            position: absolute;
+            right: 20px;
+        }
+    }
     .rightsection{
         float: right;
         display: flex;
         min-height: 60px;
         position: relative;
+        @media screen and (max-width: 768px) {
+            margin-right: 70px;
+        }
         a{
             color: #fff;
             align-self: center;
