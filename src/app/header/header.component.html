@@ -21,8 +21,8 @@
       <a class="nav-link" href="javascript:void(0)" *ngIf="!auth" [routerLink]="['/login']">Login</a>
       <a class="nav-link" href="javascript:void(0)" *ngIf="!auth" [routerLink]="['/register']">Register</a>
       <a class="nav-link" href="javascript:void(0)" *ngIf="auth">Welcome, {{auth.username}}</a>
-      <img [src]="auth.userimg" alt="profileimg" *ngIf="auth && auth.userimg != null">
-      <img src="../../assets/images/dummy_media.png" alt="profileimg" *ngIf="auth && auth.userimg == null">
+      <img [src]="auth.userimg" alt="profileimg1" *ngIf="auth && auth.userimg != 'dummy_media.png'">
+      <img src="../../assets/images/dummy_media.png" alt="profileimg2" *ngIf="auth && auth.userimg == 'dummy_media.png'">
       <ul class="navbar-nav dropDown" [ngClass]="{'openSettigs': id == true }" *ngIf="auth">
         <li class="nav-item">
           <a class="nav-link" href="javascript:void(0)" *ngIf="auth" (click)="logout()">Logout</a>

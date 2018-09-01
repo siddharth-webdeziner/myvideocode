@@ -23,6 +23,7 @@ export class MyvideosComponent implements OnInit {
   auth:any;
   admin:any;
   activate:any;
+  displayPopup: boolean;
   constructor(
     public sanitizer: DomSanitizer,
     private router: Router,
@@ -34,9 +35,10 @@ export class MyvideosComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.displayPopup = false;
     this.auth = JSON.parse(localStorage.getItem('userObj'));
     if(this.auth){
-      if(this.auth.username == 'Siddharth Shahi'){
+      if(this.auth.username == 'siddharth'){
         this.admin = true;
       }
     }
@@ -109,4 +111,20 @@ export class MyvideosComponent implements OnInit {
     }
   }
 
+  downloadVideo(videocode){
+    console.log(videocode);
+    var downloadedUrl = "https://www.ssyoutube.com/watch?v="+videocode;
+    window.open(downloadedUrl,"Ratting","width=650,height=300,left=150,top=200,toolbar=0,status=0,");
+    setTimeout(function(){
+      console.log("clicking !!");
+      window.addEventListener('message', function(e) {
+        ProcessParentMessage_2(e.data); // e.data hold the message
+      } , false);
+      
+      function ProcessParentMessage_2(message) {
+        // do something with the message
+        console.log(message)
+      }
+    },5000)
+  }
 }
