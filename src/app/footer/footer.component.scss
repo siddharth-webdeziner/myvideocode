@@ -1,0 +1,31 @@
+footer {
+    background: #343a40 !important;
+    min-height: 70px;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    position: relative;
+    bottom: -14px;
+    p{
+        float: left;
+        align-self: center;
+        margin: 0;
+    }
+    ul {
+        align-self: center;
+        margin-bottom: 0;
+        padding-left: 0;
+        float: right;
+        li{
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        li.fb-like{
+            margin-bottom: 5px;
+        }
+        li.pin-it{
+            margin-bottom: 6px;
+        }
+    }
+}
