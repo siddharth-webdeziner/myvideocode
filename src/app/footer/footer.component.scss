@@ -1,11 +1,11 @@
 footer {
     background: #343a40 !important;
-    min-height: 70px;
     display: flex;
     padding: 10px 20px;
     justify-content: space-between;
-    position: relative;
-    bottom: -14px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     p{
         float: left;
         align-self: center;

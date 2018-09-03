@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef  } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -24,12 +24,15 @@ export class MyvideosComponent implements OnInit {
   admin:any;
   activate:any;
   displayPopup: boolean;
+  isActive:boolean;
+  categoryName:any;
   constructor(
     public sanitizer: DomSanitizer,
     private router: Router,
     private http: HttpClient, 
     public videodataService: VideodataService,
-    private spinnerService: Ng4LoadingSpinnerService
+    private spinnerService: Ng4LoadingSpinnerService,
+    private elementRef: ElementRef
   ) {
     //this.spinnerService.show();
   }
@@ -115,16 +118,11 @@ export class MyvideosComponent implements OnInit {
     console.log(videocode);
     var downloadedUrl = "https://www.ssyoutube.com/watch?v="+videocode;
     window.open(downloadedUrl,"Ratting","width=650,height=300,left=150,top=200,toolbar=0,status=0,");
-    setTimeout(function(){
-      console.log("clicking !!");
-      window.addEventListener('message', function(e) {
-        ProcessParentMessage_2(e.data); // e.data hold the message
-      } , false);
-      
-      function ProcessParentMessage_2(message) {
-        // do something with the message
-        console.log(message)
-      }
-    },5000)
   }
+  expandList(category,event){
+    console.log(this.elementRef);
+    this.isActive = !this.isActive;
+    this.categoryName = category;
+  }
+  
 }

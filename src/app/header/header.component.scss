@@ -19,7 +19,7 @@ header{
         display: flex;
         min-height: 60px;
         position: relative;
-        @media screen and (max-width: 768px) {
+        @media screen and (max-width: 767px) {
             margin-right: 70px;
         }
         a{
@@ -60,9 +60,6 @@ header{
     .header .rightsection.mobileProfile{
         display: flex;
     }
-    #collapsibleNavbar .navbar-nav{
-        margin-top: 30px;
-    }
     .menu-btn{
         position: absolute;
         right: 20px;
@@ -71,9 +68,50 @@ header{
     #collapsibleNavbar .navbar-nav a{
         text-align: right;
     }
+    .menu-btn{
+        top: 7px;
+        right: 10px;
+    }
+    header .rightsection img{
+        width: 40px;
+        height: 40px;
+    }
+    header .rightsection{
+        min-height: 50px;
+    }
+    .userProfile img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    header{
+        padding-top: 60px;
+    }
+    .navbar-expand-md .navbar-collapse{
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (max-width: 767px){
+    #collapsibleNavbar .navbar-nav{
+        margin-top: 30px;
+    }
+    .openSettigs.dropDown {
+        display: none !important;
+    }
+    .usernameWeb{
+        display: none;
+    }
+    
     header .rightsection.webProfile{
         position: absolute;
-        right: 20px;
+        right: 5px;
         top: 5px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .logoutMobile,.userProfile{
+        display: none;
     }
 }

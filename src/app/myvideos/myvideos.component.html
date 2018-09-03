@@ -1,11 +1,15 @@
 <app-header></app-header>
-<div class="container-fluid">
+<div class="container-fluid video-gallery">
   <input list="browsers" name="browser" [(ngModel)]="searchText" placeholder="Search video" class="searchVideos">
   <datalist id="browsers">
     <option value="Shahrukh">
     <option value="Mashup">
     <option value="Trailers">
     <option value="Movies">
+    <option value="Comedy">
+    <option value="Web Series">
+    <option value="Sports">
+    <option value="Tvf">
   </datalist>
   <!-- <ul class="videoBox">
     <li *ngFor="let item of urlArr | filter : searchText; let i = index" class="col-lg-2 col-md-4 col-sm-4">
@@ -31,9 +35,9 @@
     </li>
     <li *ngIf="item"><h6>No Content Available</h6></li>
   </ul> -->
-  <h3>Popular</h3>
-  <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'popular'" class="col-lg-2 col-md-3 col-sm-4">
+  <h3>Popular <span [class.active]="categoryName == 'popular'" (click)="expandList('popular',$event)"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h3>
+  <ul class="videoBox" [class.active]="categoryName == 'popular'">
+    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'popular'; let i = index" class="col-lg-2 col-md-3 col-sm-4">
         <section>
           <div (click)="openVideo(item)">
             <img [src]="thunbnailURL(item.videocode)" alt="">
@@ -50,10 +54,7 @@
             </span>
             <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
                 <i class="fa fa-download" aria-hidden="true"></i>
-              </span>
-            <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
-                <i class="fa fa-download" aria-hidden="true"></i>
-              </span>
+            </span>
             <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
               <i class="fa fa-close" style="font-size:20px"></i>
             </span>
@@ -62,8 +63,8 @@
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
   </ul>
-  <h3>Trailers & Teaser</h3>
-  <ul class="videoBox">
+  <h3>Trailers & Teaser<span [class.active]="categoryName == 'trailer'" (click)="expandList('trailer')"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h3>
+  <ul class="videoBox" [class.active]="categoryName == 'trailer'">
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'trailer'; let i = index" class="col-lg-2 col-md-3 col-sm-4">
         <section>
           <div (click)="openVideo(item)">
@@ -90,8 +91,8 @@
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
   </ul>
-  <h3>Comedy</h3>
-  <ul class="videoBox">
+  <h3>Comedy<span [class.active]="categoryName == 'comedy'" (click)="expandList('comedy')"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h3>
+  <ul class="videoBox" [class.active]="categoryName == 'comedy'">
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'comedy'" class="col-lg-2 col-md-3 col-sm-4">
         <section>
           <div (click)="openVideo(item)">
@@ -118,8 +119,8 @@
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
   </ul>
-  <h3>Movies</h3>
-  <ul class="videoBox">
+  <h3>Movies<span [class.active]="categoryName == 'movies'" (click)="expandList('movies')"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h3>
+  <ul class="videoBox" [class.active]="categoryName == 'movies'">
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'movies'" class="col-lg-2 col-md-3 col-sm-4">
         <section>
           <div (click)="openVideo(item)">
@@ -146,8 +147,8 @@
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
   </ul>
-  <h3>Shahrukh Khan Videos</h3>
-  <ul class="videoBox">
+  <h3>Shahrukh Khan Videos<span [class.active]="categoryName == 'Shahrukh khan movies'" (click)="expandList('Shahrukh khan movies')"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h3>
+  <ul class="videoBox" [class.active]="categoryName == 'Shahrukh khan movies'">
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'Shahrukh khan movies'" class="col-lg-2 col-md-3 col-sm-4">
       <section>
         <div (click)="openVideo(item)">
@@ -171,9 +172,9 @@
   </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
   </ul>
-  <h3>Web series</h3>
-  <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'webseries'" class="col-lg-2 col-md-3 col-sm-4">
+  <h3>Web series<span [class.active]="categoryName == 'web series'" (click)="expandList('web series')"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h3>
+  <ul class="videoBox" [class.active]="categoryName == 'web series'">
+    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'web series'" class="col-lg-2 col-md-3 col-sm-4">
         <section>
           <div (click)="openVideo(item)">
             <img [src]="thunbnailURL(item.videocode)" alt="">
@@ -199,8 +200,8 @@
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
   </ul>
-  <h3>Sports</h3>
-  <ul class="videoBox">
+  <h3>Sports<span [class.active]="categoryName == 'sports'" (click)="expandList('sports')"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h3>
+  <ul class="videoBox" [class.active]="categoryName == 'sports'">
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'sports'" class="col-lg-2 col-md-3 col-sm-4">
         <section>
           <div (click)="openVideo(item)">
@@ -227,8 +228,8 @@
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
   </ul>
-  <h3>Mashup Videos</h3>
-  <ul class="videoBox">
+  <h3>Mashup Videos<span [class.active]="categoryName == 'mashup song'" (click)="expandList('mashup song')"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h3>
+  <ul class="videoBox" [class.active]="categoryName == 'mashup song'">
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'mashup song'" class="col-lg-2 col-md-3 col-sm-4">
         <section>
           <div (click)="openVideo(item)">
@@ -255,8 +256,8 @@
     </li>
     <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
   </ul>
-  <h3>TVF</h3>
-  <ul class="videoBox">
+  <h3>TVF<span [class.active]="categoryName == 'tvf'" (click)="expandList('tvf')"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></h3>
+  <ul class="videoBox" [class.active]="categoryName == 'tvf'">
     <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'tvf'" class="col-lg-2 col-md-3 col-sm-4">
         <section>
           <div (click)="openVideo(item)">
