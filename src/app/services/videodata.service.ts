@@ -6,9 +6,9 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable()
 export class VideodataService {
   url: string;
-  newArr: any = [];
   config:any;
   public messageSource = new BehaviorSubject('default message');
+  VideoData:any = [];
   currentMessage = this.messageSource.asObservable();
   constructor(private http : Http) {
     this.url  = 'https://mynewapplication123.herokuapp.com/'
@@ -24,8 +24,13 @@ export class VideodataService {
     return this.http.get(this.url+"videolist").map(res => {
       console.log("res.json() : ", res.json());
       this.currentMessage = res.json();
+      this.VideoData = res.json();
       return res.json()
     })
+  }
+
+  mycode(){
+    return "sid"
   }
 
   loginUser(user){

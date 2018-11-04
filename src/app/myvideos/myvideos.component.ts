@@ -52,7 +52,7 @@ export class MyvideosComponent implements OnInit {
       this.latestSilderVideos();
     })
   }
-
+  
   videoURL(item){
     return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/'+item);
   }
@@ -62,7 +62,7 @@ export class MyvideosComponent implements OnInit {
   }
 
   openVideo(item){
-    this.router.navigate(['/displayvideo', { embedcode: item.videocode, category: item.videocat, title: item.videotitle}]);
+    this.router.navigate(['displayvideo', { itemData: item._id}]);
   }
 
   latestSilderVideos(){

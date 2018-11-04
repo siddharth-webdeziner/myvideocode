@@ -49,11 +49,8 @@
               <i class="fa fa-heart" aria-hidden="true"></i>
             </span>
             <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
-                <i class="fa fa-download" aria-hidden="true"></i>
-              </span>
-            <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
-                <i class="fa fa-download" aria-hidden="true"></i>
-              </span>
+              <i class="fa fa-download" aria-hidden="true"></i>
+            </span>
             <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
               <i class="fa fa-close" style="font-size:20px"></i>
             </span>
@@ -173,7 +170,7 @@
   </ul>
   <h3>Web series</h3>
   <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'webseries'" class="col-lg-2 col-md-3 col-sm-4">
+    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'web series'" class="col-lg-2 col-md-3 col-sm-4">
         <section>
           <div (click)="openVideo(item)">
             <img [src]="thunbnailURL(item.videocode)" alt="">

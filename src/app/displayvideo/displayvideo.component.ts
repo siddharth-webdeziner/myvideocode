@@ -16,9 +16,10 @@ export class DisplayvideoComponent implements OnInit {
   characters:any = [];
   videoUrl:any;
   paramsSubscription: any;
-  playbackurl:any;
-  category:any;
+  itemId:any;
+  category: any;
   title:any;
+  playbackurl:any;
   constructor(
     public sanitizer: DomSanitizer,
     private route: ActivatedRoute,
@@ -33,16 +34,29 @@ export class DisplayvideoComponent implements OnInit {
   ngOnInit() {
     this.paramsSubscription = this.route.params
       .subscribe((params) => {
-        console.log(params);
-        this.playbackurl = params['embedcode'];
-        this.category = params['category'];
-        this.title = params['title'];
+        this.itemId = params['itemData'];
       })
-      this.loadRelatedVideos(this.category);
+      this.loadContent(this.itemId);
   }
 
   ngOnDestroy() {
     this.paramsSubscription.unsubscribe();
+  }
+
+  loadContent(id) {
+    this.videodataService.getVideoData().subscribe(data => {
+      console.log('>>>>>>>>>>>>>>>>>>>> ',data.videolist);
+      for(let i = 0; i < data.videolist.length; i++) {
+        console.log(data.videolist[i]._id == id);
+        if(data.videolist[i]._id == id) {
+          console.log(">>>>>>>>>>>>>>>.. ", data.videolist[i]._id == id);
+          this.category = data.videolist[i].videocat;
+          this.title = data.videolist[i].videotitle;
+          this.playbackurl = data.videolist[i].videocode;
+          break;
+        }
+      }
+    })
   }
 
   thunbnailURL(item){
@@ -58,7 +72,7 @@ export class DisplayvideoComponent implements OnInit {
     this.videodataService.getVideoData().subscribe(data => {
       console.log("data.videolist.lengthdata.videolist.length", data.videolist.length)
       this.catArr = data.videolist;
-      this.category = category;
+      //this.category = category;
     }); 
   }
   openVideo(item){
