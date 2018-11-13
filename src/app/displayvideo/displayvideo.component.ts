@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import { ActivatedRoute, Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -26,7 +26,8 @@ export class DisplayvideoComponent implements OnInit {
     private router: Router,
     private http: HttpClient, 
     public videodataService: VideodataService,
-    private spinnerService: Ng4LoadingSpinnerService
+    private spinnerService: Ng4LoadingSpinnerService,
+    private hostElement: ElementRef,
   ) {
     //this.spinnerService.show();
   }
@@ -53,6 +54,8 @@ export class DisplayvideoComponent implements OnInit {
           this.category = data.videolist[i].videocat;
           this.title = data.videolist[i].videotitle;
           this.playbackurl = data.videolist[i].videocode;
+          const iframe = this.hostElement.nativeElement.querySelector('iframe');
+          iframe.src = "https://www.youtube.com/embed/"+this.playbackurl+"?rel=0&showinfo=0&autoplay=1";
           break;
         }
       }
