@@ -16,6 +16,8 @@ import {
 // import social buttons module
 import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
 
+// Owl Carousel
+import { OwlModule } from 'ngx-owl-carousel';
 
 import { AppComponent } from './app.component';
 import { AddvideosComponent } from './addvideos/addvideos.component';
@@ -33,7 +35,7 @@ import { SavedvideoComponent } from './savedvideo/savedvideo.component';
 import { FooterComponent } from './footer/footer.component';
 import { DiscoverComponent } from './discover/discover.component';
 
-// Configs 
+// Configs
 export function getAuthServiceConfigs() {
   let config = new AuthServiceConfig(
       [
@@ -75,7 +77,8 @@ export function getAuthServiceConfigs() {
     HttpModule,
     SocialLoginModule,
     JwSocialButtonsModule,
-    Ng4LoadingSpinnerModule.forRoot()
+    Ng4LoadingSpinnerModule.forRoot(),
+    OwlModule
   ],
   providers: [{
     provide: AuthServiceConfig,
