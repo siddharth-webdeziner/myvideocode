@@ -45,13 +45,13 @@ export class MyvideosComponent implements OnInit {
     }
     this.gettingVideoData();
     this.gettingSavedVideoData(this.auth.email);
+    this.slidesPerpage();
   }
 
   gettingVideoData(){
     this.videodataService.getVideoData().subscribe(data => {
       this.urlArr = data.videolist;
       this.latestSilderVideos();
-      this.slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
     })
   }
   
@@ -128,5 +128,21 @@ export class MyvideosComponent implements OnInit {
         console.log(message)
       }
     },5000)
+  }
+
+  private slidesPerpage(){
+    const windowWidth = window.innerWidth; // window width
+    console.log(windowWidth)
+    if(windowWidth < 1260 &&  windowWidth > 768){
+      this.slideConfig = {"slidesToShow": 4, "slidesToScroll": 3};  
+    } else if(windowWidth <= 768 && windowWidth > 580){
+      this.slideConfig = {"slidesToShow": 3, "slidesToScroll": 3};
+    } else if(windowWidth <= 580 && windowWidth > 420){
+      this.slideConfig = {"slidesToShow": 2, "slidesToScroll": 2};
+    } else if(windowWidth <= 420){
+      this.slideConfig = {"slidesToShow": 1, "slidesToScroll": 1};
+    } else {
+      this.slideConfig = {"slidesToShow": 6, "slidesToScroll": 5};
+    }
   }
 }
