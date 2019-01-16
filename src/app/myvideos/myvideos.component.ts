@@ -24,6 +24,7 @@ export class MyvideosComponent implements OnInit {
   admin:any;
   activate:any;
   displayPopup: boolean;
+  slideConfig;
   constructor(
     public sanitizer: DomSanitizer,
     private router: Router,
@@ -50,6 +51,7 @@ export class MyvideosComponent implements OnInit {
     this.videodataService.getVideoData().subscribe(data => {
       this.urlArr = data.videolist;
       this.latestSilderVideos();
+      this.slideConfig = {"slidesToShow": 4, "slidesToScroll": 4};
     })
   }
   
