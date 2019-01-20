@@ -15,7 +15,7 @@ import {
 
 // import social buttons module
 import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
-
+import { SlickModule } from 'ngx-slick';
 
 import { AppComponent } from './app.component';
 import { AddvideosComponent } from './addvideos/addvideos.component';
@@ -75,6 +75,7 @@ export function getAuthServiceConfigs() {
     HttpModule,
     SocialLoginModule,
     JwSocialButtonsModule,
+    SlickModule.forRoot(),
     Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [{

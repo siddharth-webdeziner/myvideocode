@@ -31,255 +31,291 @@
     </li>
     <li *ngIf="item"><h6>No Content Available</h6></li>
   </ul> -->
+  <div class="video-slider-container">
   <h3>Popular</h3>
-  <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'popular'" class="col-lg-2 col-md-3 col-sm-4">
-        <section>
-          <div (click)="openVideo(item)">
-            <img [src]="thunbnailURL(item.videocode)" alt="">
-            <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
-            <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
-          </div>
-          <div class="otherOptions">
-            <span class="saveVideo" *ngIf="auth">
-              <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
-              <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
-            </span>
-            <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
-              <i class="fa fa-heart" aria-hidden="true"></i>
-            </span>
-            <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
-              <i class="fa fa-download" aria-hidden="true"></i>
-            </span>
-            <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
-              <i class="fa fa-close" style="font-size:20px"></i>
-            </span>
-          </div>
-        </section>
-    </li>
-    <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
-  </ul>
-  <h3>Trailers & Teaser</h3>
-  <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'trailer'; let i = index" class="col-lg-2 col-md-3 col-sm-4">
-        <section>
-          <div (click)="openVideo(item)">
-            <img [src]="thunbnailURL(item.videocode)" alt="">
-            <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
-            <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
-          </div>
-          <div class="otherOptions">
-            <span class="saveVideo" *ngIf="auth">
-              <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
-              <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
-            </span>
-            <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
-              <i class="fa fa-heart" aria-hidden="true"></i>
-            </span>
-            <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
-                <i class="fa fa-download" aria-hidden="true"></i>
+    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+      <ul class="videoBox">
+        <li ngxSlickItem *ngFor="let item of urlArr | filter : searchText | videofilter : 'popular'" class="col-lg-2 col-md-3 col-sm-4">
+            <section>
+              <div (click)="openVideo(item)">
+                <img [src]="thunbnailURL(item.videocode)" alt="">
+                <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
+                <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+              </div>
+              <div class="otherOptions">
+                <span class="saveVideo" *ngIf="auth">
+                  <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
+                  <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
+                </span>
+                <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </span>
+                <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
+                  <i class="fa fa-download" aria-hidden="true"></i>
+                </span>
+                <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
+                  <i class="fa fa-close" style="font-size:20px"></i>
+                </span>
+              </div>
+            </section>
+        </li>
+        <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
+      </ul>
+    </ngx-slick>
+  </div>
+  <div class="video-slider-container">
+    <h3>Trailers & Teaser</h3>
+    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+        <ul class="videoBox">
+          <li ngxSlickItem *ngFor="let item of urlArr | filter : searchText | videofilter : 'trailer'; let i = index" class="col-lg-2 col-md-3 col-sm-4">
+              <section>
+                <div (click)="openVideo(item)">
+                  <img [src]="thunbnailURL(item.videocode)" alt="">
+                  <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
+                  <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+                </div>
+                <div class="otherOptions">
+                  <span class="saveVideo" *ngIf="auth">
+                    <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
+                    <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
+                  </span>
+                  <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                  </span>
+                  <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
+                      <i class="fa fa-download" aria-hidden="true"></i>
+                    </span>
+                  <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
+                    <i class="fa fa-close" style="font-size:20px"></i>
+                  </span>
+                </div>
+              </section>
+          </li>
+          <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
+        </ul>
+    </ngx-slick>
+  </div>
+  <div class="video-slider-container">
+    <h3>Comedy</h3>
+    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+      <ul class="videoBox">
+        <li ngxSlickItem *ngFor="let item of urlArr | filter : searchText | videofilter : 'comedy'" class="col-lg-2 col-md-3 col-sm-4">
+            <section>
+              <div (click)="openVideo(item)">
+                <img [src]="thunbnailURL(item.videocode)" alt="">
+                <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
+                <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+              </div>
+              <div class="otherOptions">
+                <span class="saveVideo" *ngIf="auth">
+                  <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
+                  <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
+                </span>
+                <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </span>
+                <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                  </span>
+                <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
+                  <i class="fa fa-close" style="font-size:20px"></i>
+                </span>
+              </div>
+            </section>
+        </li>
+        <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
+      </ul>
+    </ngx-slick>
+  </div>
+  <div class="video-slider-container">
+    <h3>Movies</h3>
+    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+      <ul class="videoBox">
+        <li ngxSlickItem *ngFor="let item of urlArr | filter : searchText | videofilter : 'movies'" class="col-lg-2 col-md-3 col-sm-4">
+            <section>
+              <div (click)="openVideo(item)">
+                <img [src]="thunbnailURL(item.videocode)" alt="">
+                <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
+                <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+              </div>
+              <div class="otherOptions">
+                <span class="saveVideo" *ngIf="auth">
+                  <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
+                  <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
+                </span>
+                <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </span>
+                <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                  </span>
+                <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
+                  <i class="fa fa-close" style="font-size:20px"></i>
+                </span>
+              </div>
+            </section>
+        </li>
+        <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
+      </ul>
+    </ngx-slick>
+  </div>
+  <div class="video-slider-container">
+    <h3>Shahrukh Khan Videos</h3>
+    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+      <ul class="videoBox">
+        <li ngxSlickItem *ngFor="let item of urlArr | filter : searchText | videofilter : 'Shahrukh khan movies'" class="col-lg-2 col-md-3 col-sm-4">
+          <section>
+            <div (click)="openVideo(item)">
+              <img [src]="thunbnailURL(item.videocode)" alt="">
+              <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
+              <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+            </div>
+            <div class="otherOptions">
+              <span class="saveVideo" *ngIf="auth">
+                <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
+                <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
               </span>
-            <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
-              <i class="fa fa-close" style="font-size:20px"></i>
-            </span>
-          </div>
-        </section>
-    </li>
-    <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
-  </ul>
-  <h3>Comedy</h3>
-  <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'comedy'" class="col-lg-2 col-md-3 col-sm-4">
-        <section>
-          <div (click)="openVideo(item)">
-            <img [src]="thunbnailURL(item.videocode)" alt="">
-            <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
-            <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
-          </div>
-          <div class="otherOptions">
-            <span class="saveVideo" *ngIf="auth">
-              <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
-              <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
-            </span>
-            <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
-              <i class="fa fa-heart" aria-hidden="true"></i>
-            </span>
-            <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
-                <i class="fa fa-download" aria-hidden="true"></i>
+              <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
+                <i class="fa fa-heart" aria-hidden="true"></i>
               </span>
-            <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
-              <i class="fa fa-close" style="font-size:20px"></i>
-            </span>
-          </div>
-        </section>
-    </li>
-    <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
-  </ul>
-  <h3>Movies</h3>
-  <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'movies'" class="col-lg-2 col-md-3 col-sm-4">
-        <section>
-          <div (click)="openVideo(item)">
-            <img [src]="thunbnailURL(item.videocode)" alt="">
-            <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
-            <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
-          </div>
-          <div class="otherOptions">
-            <span class="saveVideo" *ngIf="auth">
-              <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
-              <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
-            </span>
-            <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
-              <i class="fa fa-heart" aria-hidden="true"></i>
-            </span>
-            <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
-                <i class="fa fa-download" aria-hidden="true"></i>
+              <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
+                <i class="fa fa-close" style="font-size:20px"></i>
               </span>
-            <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
-              <i class="fa fa-close" style="font-size:20px"></i>
-            </span>
-          </div>
-        </section>
-    </li>
-    <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
-  </ul>
-  <h3>Shahrukh Khan Videos</h3>
-  <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'Shahrukh khan movies'" class="col-lg-2 col-md-3 col-sm-4">
-      <section>
-        <div (click)="openVideo(item)">
-          <img [src]="thunbnailURL(item.videocode)" alt="">
-          <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
-          <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
-        </div>
-        <div class="otherOptions">
-          <span class="saveVideo" *ngIf="auth">
-            <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
-            <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
-          </span>
-          <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
-            <i class="fa fa-heart" aria-hidden="true"></i>
-          </span>
-          <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
-            <i class="fa fa-close" style="font-size:20px"></i>
-          </span>
-        </div>
-      </section>
-  </li>
-    <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
-  </ul>
-  <h3>Web series</h3>
-  <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'web series'" class="col-lg-2 col-md-3 col-sm-4">
-        <section>
-          <div (click)="openVideo(item)">
-            <img [src]="thunbnailURL(item.videocode)" alt="">
-            <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
-            <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
-          </div>
-          <div class="otherOptions">
-            <span class="saveVideo" *ngIf="auth">
-              <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
-              <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
-            </span>
-            <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
-              <i class="fa fa-heart" aria-hidden="true"></i>
-            </span>
-            <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
-                <i class="fa fa-download" aria-hidden="true"></i>
-              </span>
-            <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
-              <i class="fa fa-close" style="font-size:20px"></i>
-            </span>
-          </div>
-        </section>
-    </li>
-    <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
-  </ul>
-  <h3>Sports</h3>
-  <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'sports'" class="col-lg-2 col-md-3 col-sm-4">
-        <section>
-          <div (click)="openVideo(item)">
-            <img [src]="thunbnailURL(item.videocode)" alt="">
-            <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
-            <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
-          </div>
-          <div class="otherOptions">
-            <span class="saveVideo" *ngIf="auth">
-              <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
-              <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
-            </span>
-            <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
-              <i class="fa fa-heart" aria-hidden="true"></i>
-            </span>
-            <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
-                <i class="fa fa-download" aria-hidden="true"></i>
-              </span>
-            <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
-              <i class="fa fa-close" style="font-size:20px"></i>
-            </span>
-          </div>
-        </section>
-    </li>
-    <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
-  </ul>
-  <h3>Mashup Videos</h3>
-  <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'mashup song'" class="col-lg-2 col-md-3 col-sm-4">
-        <section>
-          <div (click)="openVideo(item)">
-            <img [src]="thunbnailURL(item.videocode)" alt="">
-            <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
-            <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
-          </div>
-          <div class="otherOptions">
-            <span class="saveVideo" *ngIf="auth">
-              <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
-              <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
-            </span>
-            <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
-              <i class="fa fa-heart" aria-hidden="true"></i>
-            </span>
-            <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
-                <i class="fa fa-download" aria-hidden="true"></i>
-              </span>
-            <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
-              <i class="fa fa-close" style="font-size:20px"></i>
-            </span>
-          </div>
-        </section>
-    </li>
-    <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
-  </ul>
-  <h3>TVF</h3>
-  <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'tvf'" class="col-lg-2 col-md-3 col-sm-4">
-        <section>
-          <div (click)="openVideo(item)">
-            <img [src]="thunbnailURL(item.videocode)" alt="">
-            <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
-            <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
-          </div>
-          <div class="otherOptions">
-            <span class="saveVideo" *ngIf="auth">
-              <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
-              <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
-            </span>
-            <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
-              <i class="fa fa-heart" aria-hidden="true"></i>
-            </span>
-            <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
-                <i class="fa fa-download" aria-hidden="true"></i>
-              </span>
-            <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
-              <i class="fa fa-close" style="font-size:20px"></i>
-            </span>
-          </div>
-        </section>
-    </li>
-    <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
-  </ul>
+            </div>
+          </section>
+      </li>
+        <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
+      </ul>
+    </ngx-slick>
+  </div>
+  <div class="video-slider-container">
+    <h3>Web series</h3>
+    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+      <ul class="videoBox">
+        <li ngxSlickItem *ngFor="let item of urlArr | filter : searchText | videofilter : 'web series'" class="col-lg-2 col-md-3 col-sm-4">
+            <section>
+              <div (click)="openVideo(item)">
+                <img [src]="thunbnailURL(item.videocode)" alt="">
+                <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
+                <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+              </div>
+              <div class="otherOptions">
+                <span class="saveVideo" *ngIf="auth">
+                  <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
+                  <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
+                </span>
+                <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </span>
+                <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                  </span>
+                <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
+                  <i class="fa fa-close" style="font-size:20px"></i>
+                </span>
+              </div>
+            </section>
+        </li>
+        <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
+      </ul>
+    </ngx-slick>
+  </div>
+  <div class="video-slider-container">
+    <h3>Sports</h3>
+    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+      <ul class="videoBox">
+        <li ngxSlickItem *ngFor="let item of urlArr | filter : searchText | videofilter : 'sports'" class="col-lg-2 col-md-3 col-sm-4">
+            <section>
+              <div (click)="openVideo(item)">
+                <img [src]="thunbnailURL(item.videocode)" alt="">
+                <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
+                <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+              </div>
+              <div class="otherOptions">
+                <span class="saveVideo" *ngIf="auth">
+                  <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
+                  <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
+                </span>
+                <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </span>
+                <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                  </span>
+                <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
+                  <i class="fa fa-close" style="font-size:20px"></i>
+                </span>
+              </div>
+            </section>
+        </li>
+        <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
+      </ul>
+    </ngx-slick>
+  </div>
+  <div class="video-slider-container">
+    <h3>Mashup Videos</h3>
+    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+      <ul class="videoBox">
+        <li ngxSlickItem *ngFor="let item of urlArr | filter : searchText | videofilter : 'mashup song'" class="col-lg-2 col-md-3 col-sm-4">
+            <section>
+              <div (click)="openVideo(item)">
+                <img [src]="thunbnailURL(item.videocode)" alt="">
+                <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
+                <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+              </div>
+              <div class="otherOptions">
+                <span class="saveVideo" *ngIf="auth">
+                  <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
+                  <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
+                </span>
+                <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </span>
+                <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                  </span>
+                <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
+                  <i class="fa fa-close" style="font-size:20px"></i>
+                </span>
+              </div>
+            </section>
+        </li>
+        <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
+      </ul>
+    </ngx-slick>
+  </div>
+  <div class="video-slider-container">
+    <h3>TVF</h3>
+    <ngx-slick class="carousel" #slickModal="slick-modal" [config]="slideConfig">
+      <ul class="videoBox">
+        <li ngxSlickItem *ngFor="let item of urlArr | filter : searchText | videofilter : 'tvf'" class="col-lg-2 col-md-3 col-sm-4">
+            <section>
+              <div (click)="openVideo(item)">
+                <img [src]="thunbnailURL(item.videocode)" alt="">
+                <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>
+                <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
+              </div>
+              <div class="otherOptions">
+                <span class="saveVideo" *ngIf="auth">
+                  <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
+                  <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
+                </span>
+                <span class="likeVideo" (click)="likeVideo(item._id)" *ngIf="auth" title="Like video">
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </span>
+                <span class="likeVideo" (click)="downloadVideo(item.videocode)" *ngIf="auth" title="Like video">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                  </span>
+                <span (click)="deleteVideo(item._id)" title="Delete video" class="deleteVideo" *ngIf="auth && admin">
+                  <i class="fa fa-close" style="font-size:20px"></i>
+                </span>
+              </div>
+            </section>
+        </li>
+        <li *ngIf="!nocontent"><h6>No Content Available</h6></li>
+      </ul>
+    </ngx-slick>
+  </div>
   <!-- <div *ngIf="displayPopup" class="popup-video">
       <iframe src="" frameborder="0"></iframe>
   </div> -->
