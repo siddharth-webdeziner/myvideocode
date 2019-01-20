@@ -55,7 +55,8 @@ export class DisplayvideoComponent implements OnInit {
           this.title = data.videolist[i].videotitle;
           this.playbackurl = data.videolist[i].videocode;
           const iframe = this.hostElement.nativeElement.querySelector('iframe');
-          iframe.src = "https://www.youtube.com/embed/"+this.playbackurl+"?rel=0&showinfo=0&autoplay=1";
+          iframe.src = "https://www.youtube.com/embed/"+this.playbackurl+"?autoplay=1";
+          iframe.allow = "autoplay"
           break;
         }
       }
