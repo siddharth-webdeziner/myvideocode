@@ -1,6 +1,18 @@
 .video-slider-container{
     position: relative;
     margin-top: 25px;
+    h3{
+        font-size: 22px;
+        span{
+            font-size: 14px;
+            float: right;
+            cursor: pointer;
+            padding-bottom: 5px;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
 }
 .videoBox{
     padding:0;
