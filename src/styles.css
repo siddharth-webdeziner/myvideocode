@@ -54,3 +54,10 @@ h4{
     overflow: hidden;
 }
 
+
+
+@media screen and (max-width: 767px){
+    body{
+        background-size: auto;
+    }
+}
