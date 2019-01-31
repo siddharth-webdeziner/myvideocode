@@ -18,6 +18,8 @@
     padding:0;
     text-align: center;
     min-height: 150px;
+    max-height: 445px;
+    overflow: hidden;
     li{
         //width: 16.666%;
         display: inline-block;
@@ -118,7 +120,7 @@
     &:after{
      clear: both;
      display: block;
-     content:"";   
+     content:"";
     }
 }
 
@@ -148,6 +150,11 @@
         }
     }
 }
+
+.viewAll{
+  cursor: pointer;
+}
+
 @media (min-width: 576px){
     .modal-dialog {
         max-width: 1200px;
