@@ -1,52 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
+import { Component, OnInit, Input } from '@angular/core';
+import { VideodataService } from '../../services/videodata.service';
 import {Router} from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-import { VideodataService } from '../services/videodata.service';
 
 @Component({
-  selector: 'app-myvideos',
-  templateUrl: './myvideos.component.html',
-  styleUrls: ['./myvideos.component.scss'],
+  selector: 'app-video-list',
+  templateUrl: './video-list.component.html',
+  styleUrls: ['./video-list.component.scss'],
   providers : [VideodataService]
 })
-export class MyvideosComponent implements OnInit {
-  parentMessage = "message from parent"
+export class VideoListComponent implements OnInit {
+  @Input() childMessage: string;
+  @Input() searchedText: string;
+  message;
   urlArr:any = [];
-  characters:any = [];
-  videoUrl:any;
-  latestVideos:any = [];
   savedVideos:any = [];
-  searchText:any;
-  item:any;
-  nocontent:any;
-  auth:any;
-  admin:any;
-  activate:any;
-  displayPopup: boolean;
-  slideConfig;
+  auth;
+  admin;
   textSearched;
   constructor(
-    public sanitizer: DomSanitizer,
-    private router: Router,
-    private http: HttpClient, 
     public videodataService: VideodataService,
-    private spinnerService: Ng4LoadingSpinnerService
-  ) {
-    //this.spinnerService.show();
-  }
+    private router: Router,
+  ) { }
 
   ngOnInit() {
-    this.displayPopup = false;
     this.auth = JSON.parse(localStorage.getItem('userObj'));
     if(this.auth){
       if(this.auth.username == 'siddharth'){
         this.admin = true;
       }
     }
+    this.message = this.childMessage;
+    console.log("this.searchedText", this.searchedText);
+    this.textSearched = this.searchedText;
     this.gettingVideoData();
-    this.gettingSavedVideoData(this.auth.email);
   }
 
   gettingVideoData(){
@@ -55,26 +41,24 @@ export class MyvideosComponent implements OnInit {
       this.latestSilderVideos();
     })
   }
-  
-  videoURL(item){
-    return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/'+item);
-  }
 
-  thunbnailURL(item){
-    return 'https://img.youtube.com/vi/'+item+'/0.jpg';
+  latestSilderVideos(){
+    for(let i=0;i< this.urlArr.length;i++){
+      if(this.urlArr[i].cat == "Latest videos"){
+        //this.latestVideos.push(this.urlArr[i]);
+      }
+    }    
   }
 
   openVideo(item){
     this.router.navigate(['displayvideo', { itemData: item._id}]);
   }
 
-  latestSilderVideos(){
-    for(let i=0;i< this.urlArr.length;i++){
-      if(this.urlArr[i].cat == "Latest videos"){
-        this.latestVideos.push(this.urlArr[i]);
-      }
-    }    
+  thunbnailURL(item){
+    return 'https://img.youtube.com/vi/'+item+'/0.jpg';
   }
+
+  
   deleteVideo(id){
     this.videodataService.deleteVideoData(id).subscribe(data => {
       this.gettingVideoData()
@@ -131,11 +115,5 @@ export class MyvideosComponent implements OnInit {
     },5000)
   }
 
-  viewAll(cat){
-    this.router.navigate(['discoveredPage', { category: cat}]);
-  }
 
-  searchingText(textVal){
-    this.textSearched = textVal;
-  }
 }
