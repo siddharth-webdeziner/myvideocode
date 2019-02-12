@@ -62,7 +62,12 @@ h4 {
     overflow: hidden;
 }
 
-header nav {
+.bg-dark {
+    background: #203145 !important;
+}
+
+
+/* header nav {
     display: flex;
     justify-content: space-between;
     padding: 10px 15px;
@@ -169,7 +174,7 @@ header aside.in {
     animation: slide 0.5s forwards;
     animation-delay: 2s;
     transform: translateX(-200px);
-}
+} */
 
 @media screen and (max-width: 767px) {
     body {
