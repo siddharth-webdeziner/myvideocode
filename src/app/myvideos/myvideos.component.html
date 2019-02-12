@@ -8,7 +8,7 @@
     <option value="Movies">
   </datalist>
     <div class="video-slider-container">
-        <h3>Popular <span class="viewAll" (click)="viewAll('popular')">View All</span></h3>
+        <h3>Popular</h3>
         <ul class="videoBox">
             <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'popular'" class="col-lg-2 col-md-3 col-sm-4">
                 <section>
@@ -38,9 +38,10 @@
                 <h6>No Content Available</h6>
             </li>
         </ul>
+        <p class="text-right"><span class="viewAll" (click)="viewAll('popular')">View All</span></p>
     </div>
     <div class="video-slider-container">
-        <h3>Trailers & Teaser<span class="viewAll" (click)="viewAll('trailer')">View All</span></h3>
+        <h3>Trailers & Teaser</h3>
         <ul class="videoBox">
             <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'trailer'; let i = index" class="col-lg-2 col-md-3 col-sm-4">
                 <section>
@@ -70,9 +71,10 @@
                 <h6>No Content Available</h6>
             </li>
         </ul>
+        <p class="text-right"><span class="viewAll" (click)="viewAll('trailer')">View All</span></p>
     </div>
     <div class="video-slider-container">
-        <h3>Comedy<span class="viewAll" (click)="viewAll('comedy')">View All</span></h3>
+        <h3>Comedy</h3>
         <ul class="videoBox">
             <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'comedy'" class="col-lg-2 col-md-3 col-sm-4">
                 <section>
@@ -102,9 +104,10 @@
                 <h6>No Content Available</h6>
             </li>
         </ul>
+        <p class="text-right"><span class="viewAll" (click)="viewAll('comedy')">View All</span></p>
     </div>
     <div class="video-slider-container">
-        <h3>Movies<span class="viewAll" (click)="viewAll('movies')">View All</span></h3>
+        <h3>Movies</h3>
         <ul class="videoBox">
             <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'movies'" class="col-lg-2 col-md-3 col-sm-4">
                 <section>
@@ -134,9 +137,10 @@
                 <h6>No Content Available</h6>
             </li>
         </ul>
+        <p class="text-right"><span class="viewAll" (click)="viewAll('movies')">View All</span></p>
     </div>
     <div class="video-slider-container">
-        <h3>Shahrukh Khan Videos<span class="viewAll" (click)="viewAll('Shahrukh khan movies')">View All</span></h3>
+        <h3>Shahrukh Khan Videos</h3>
         <ul class="videoBox">
             <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'Shahrukh khan movies'" class="col-lg-2 col-md-3 col-sm-4">
                 <section>
@@ -163,6 +167,7 @@
                 <h6>No Content Available</h6>
             </li>
         </ul>
+        <p class="text-right"><span class="viewAll" (click)="viewAll('Shahrukh khan movies')">View All</span></p>
     </div>
     <div class="video-slider-container">
         <ul class="videoBox">
@@ -196,7 +201,7 @@
         </ul>
     </div>
     <div class="video-slider-container">
-        <h3>Sports<span class="viewAll" (click)="viewAll('sports')">View All</span></h3>
+        <h3>Sports</h3>
         <ul class="videoBox">
             <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'sports'" class="col-lg-2 col-md-3 col-sm-4">
                 <section>
@@ -226,9 +231,10 @@
                 <h6>No Content Available</h6>
             </li>
         </ul>
+        <p class="text-right"><span class="viewAll" (click)="viewAll('sports')">View All</span></p>
     </div>
     <div class="video-slider-container">
-        <h3>Mashup Videos<span class="viewAll" (click)="viewAll('mashup song')">View All</span></h3>
+        <h3>Mashup Videos</h3>
         <ul class="videoBox">
             <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'mashup song'" class="col-lg-2 col-md-3 col-sm-4">
                 <section>
@@ -258,9 +264,10 @@
                 <h6>No Content Available</h6>
             </li>
         </ul>
+        <p class="text-right"><span class="viewAll" (click)="viewAll('mashup song')">View All</span></p>
     </div>
     <div class="video-slider-container">
-        <h3>TVF<span class="viewAll" (click)="viewAll('tvf')">View All</span></h3>
+        <h3>TVF</h3>
         <ul class="videoBox">
             <li *ngFor="let item of urlArr | filter : searchText | videofilter : 'tvf'" class="col-lg-2 col-md-3 col-sm-4">
                 <section>
@@ -290,6 +297,7 @@
                 <h6>No Content Available</h6>
             </li>
         </ul>
+        <p class="text-right"><span class="viewAll" (click)="viewAll('tvf')">View All</span></p>
     </div>
     <!-- <div *ngIf="displayPopup" class="popup-video">
       <iframe src="" frameborder="0"></iframe>

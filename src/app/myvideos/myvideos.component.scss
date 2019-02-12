@@ -1,4 +1,4 @@
-.video-slider-container {
+        .video-slider-container {
     position: relative;
     margin-top: 25px;
     h3 {
@@ -119,44 +119,49 @@
     margin: 75px auto 15px;
     ;
     display: block;
-    &:after {
+    <<<<<<< HEAD &:after {
         clear: both;
         display: block;
         content: "";
-    }
-}
-
-.videoPopup {
-    .modal-dialog {
-        max-width: 100%;
-        object {
-            width: 100%;
-            height: 75vh;
+        =======&:after {
+            clear: both;
+            display: block;
+            content: "";
+            >>>>>>>30da371bf7ae18994b6cc6b19f76a841596632a0
         }
     }
-}
-
-.videoSlider {
-    padding-bottom: 20px;
-    .carousel-item {
-        text-align: center;
-    }
-}
-
-.lightTheme {
-    .videoBox {
-        li {
-            div.first-child {
-                background: #fff;
+    .videoPopup {
+        .modal-dialog {
+            max-width: 100%;
+            object {
+                width: 100%;
+                height: 75vh;
             }
         }
     }
-}
-
-@media (min-width: 576px) {
-    .modal-dialog {
-        max-width: 1200px;
-        margin: 1.75rem auto;
-        height: 650px;
+    .videoSlider {
+        padding-bottom: 20px;
+        .carousel-item {
+            text-align: center;
+        }
     }
-}
+    .lightTheme {
+        .videoBox {
+            li {
+                div.first-child {
+                    background: #fff;
+                }
+            }
+        }
+    }
+    <<<<<<< HEAD @media (min-width: 576px) {
+        =======.viewAll {
+            cursor: pointer;
+        }
+        @media (min-width: 576px) {
+            >>>>>>>30da371bf7ae18994b6cc6b19f76a841596632a0 .modal-dialog {
+                max-width: 1200px;
+                margin: 1.75rem auto;
+                height: 650px;
+            }
+        }
