@@ -1,43 +1,66 @@
-<header [ngClass]="{'text-success': fixedHeader === true}">
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand vdo-logo" href="javascript:void(0)" [routerLink]="['/myvideos']">
-      <img src="../../assets/images/logo.png" width="55" />
-      V<sub>D</sub>O
-    </a>
-    <button class="navbar-toggler menu-btn" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+<header>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand vdo-logo" href="javascript:void(0)" [routerLink]="['/myvideos']">
+            <img src="../../assets/images/logo.png" width="55" /> V
+            <sub>D</sub>O
+        </a>
+        <div class="headerRight">
+            <div class="headerMenu">
+                <a href="javascript:void(0)" *ngIf="!auth" [routerLink]="['/login']">Login</a>
+                <a href="javascript:void(0)" *ngIf="!auth" [routerLink]="['/register']">Sign Up</a>
+            </div>
+            <span class="hambergerIcon" (click)="toggleState()" [ngClass]="{ 'in': isIn }"></span>
+        </div>
+    </nav>
+    <aside [ngClass]="{ 'in': isIn }">
+        <ul>
+            <li class="userLogin" *ngIf="auth">
+                <img [src]="auth.userimg" alt="profileimg1" *ngIf="auth && auth.userimg != 'dummy_media.png'">
+                <img src="../../assets/images/dummy_media.png" alt="profileimg2" *ngIf="auth && auth.userimg == 'dummy_media.png'">
+                <span>Welcome, {{auth.username}}</span>
+            </li>
+            <li><a href="javascript:void(0)" [routerLink]="['/discover']">Discover</a></li>
+            <li><a href="javascript:void(0)" [routerLink]="['/savedvideo']">My Videos</a></li>
+            <li><a href="javascript:void(0)">Browse</a></li>
+            <li><a href="javascript:void(0)" (click)="changeTheme()">Themes</a></li>
+        </ul>
+    </aside>
+    <!-- <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand vdo-logo" href="javascript:void(0)" [routerLink]="['/myvideos']">
+            <img src="../../assets/images/logo.png" width="55" /> V
+            <sub>D</sub>O
+        </a>
+        <button class="navbar-toggler menu-btn" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" [routerLink]="['/discover']">Discover</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">Browse</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" [routerLink]="['/savedvideo']">My Videos</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" (click)="changeTheme()">Themes</a>
-        </li> -->
-        <li class="nav-item" *ngIf="auth">
-          <a class="nav-link" href="javascript:void(0)" [routerLink]="['/addvideos']">Add Videos</a>
-        </li>
-      </ul>
-    </div>
-    <div class="rightsection webProfile" (click)="openprofile()">
-      <a class="nav-link" href="javascript:void(0)" (click)="changeTheme()">Themes</a>
-      <a class="nav-link" href="javascript:void(0)" *ngIf="!auth" [routerLink]="['/login']">Login</a>
-      <a class="nav-link" href="javascript:void(0)" *ngIf="!auth" [routerLink]="['/register']">Register</a>
-      <a class="nav-link" href="javascript:void(0)" *ngIf="auth">Welcome, {{auth.username}}</a>
-      <img [src]="auth.userimg" alt="profileimg1" *ngIf="auth && auth.userimg != 'dummy_media.png'">
-      <img src="../../assets/images/dummy_media.png" alt="profileimg2" *ngIf="auth && auth.userimg == 'dummy_media.png'">
-      <ul class="navbar-nav dropDown" [ngClass]="{'openSettigs': id == true }" *ngIf="auth">
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)" *ngIf="auth" (click)="logout()">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" [routerLink]="['/discover']">Discover</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)">Browse</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" [routerLink]="['/savedvideo']">My Videos</a>
+                </li>
+                <li class="nav-item" *ngIf="auth">
+                    <a class="nav-link" href="javascript:void(0)" [routerLink]="['/addvideos']">Add Videos</a>
+                </li>
+            </ul>
+        </div>
+        <div class="rightsection webProfile" (click)="openprofile()">
+            <a class="nav-link" href="javascript:void(0)" (click)="changeTheme()">Themes</a>
+            <a class="nav-link" href="javascript:void(0)" *ngIf="!auth" [routerLink]="['/login']">Login</a>
+            <a class="nav-link" href="javascript:void(0)" *ngIf="!auth" [routerLink]="['/register']">Register</a>
+            <a class="nav-link" href="javascript:void(0)" *ngIf="auth">Welcome, {{auth.username}}</a>
+            <img [src]="auth.userimg" alt="profileimg1" *ngIf="auth && auth.userimg != 'dummy_media.png'">
+            <img src="../../assets/images/dummy_media.png" alt="profileimg2" *ngIf="auth && auth.userimg == 'dummy_media.png'">
+            <ul class="navbar-nav dropDown" [ngClass]="{'openSettigs': id == true }" *ngIf="auth">
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0)" *ngIf="auth" (click)="logout()">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav> -->
 </header>
