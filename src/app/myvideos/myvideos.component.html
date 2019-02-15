@@ -1,47 +1,39 @@
 <app-header></app-header>
 <div class="container-fluid">
-  <input list="browsers" name="browser" (ngModelChange)="searchingText($event)" [(ngModel)]="searchText" placeholder="Search video" class="searchVideos">
+  <input list="browsers" name="browser" (input)="getTotalAmt()" [(ngModel)]="searchText" placeholder="Search video" class="searchVideos">
   <datalist id="browsers">
     <option value="Shahrukh">
     <option value="Mashup">
-    <option value="Trailers">
+    <option value="Trailer">
     <option value="Movies">
   </datalist>
   <div class="video-slider-container">
-    <!-- {{textSearched}} -->
-  <h3>Popular <span class="viewAll" (click)="viewAll('popular')">View All</span></h3>
-    <app-video-list [searchedText]="textSearched" [childMessage]="'popular'"></app-video-list>
+    <app-video-list [searchedText]="textSearched" [category]="'popular'"></app-video-list>
   </div>
   <div class="video-slider-container">
-    <h3>Trailers & Teaser<span class="viewAll" (click)="viewAll('trailer')">View All</span></h3>
-    <app-video-list [searchedText]="textSearched" [childMessage]="'trailer'"></app-video-list>
+    <app-video-list [searchedText]="textSearched" [category]="'trailer'"></app-video-list>
   </div>
   <div class="video-slider-container">
-    <h3>Comedy<span class="viewAll" (click)="viewAll('comedy')">View All</span></h3>
-    <app-video-list [searchedText]="textSearched" [childMessage]="'comedy'"></app-video-list>
+    <app-video-list [searchedText]="textSearched" [category]="'comedy'"></app-video-list>
   </div>
   <div class="video-slider-container">
-    <h3>Movies<span class="viewAll" (click)="viewAll('movies')">View All</span></h3>
-    <app-video-list [searchedText]="textSearched" [childMessage]="'movies'"></app-video-list>
+    <app-video-list [searchedText]="textSearched" [category]="'movies'"></app-video-list>
   </div>
   <div class="video-slider-container">
-    <h3>Shahrukh Khan Videos<span class="viewAll" (click)="viewAll('Shahrukh khan movies')">View All</span></h3>
-    <app-video-list [searchedText]="textSearched" [childMessage]="'Shahrukh khan movies'"></app-video-list>
+    <app-video-list [searchedText]="textSearched" [category]="'Shahrukh khan movies'"></app-video-list>
   </div>
   <div class="video-slider-container">
-      <app-video-list [searchedText]="textSearched" [childMessage]="'web series'"></app-video-list>
+
+      <app-video-list [searchedText]="textSearched" [category]="'web series'"></app-video-list>
   </div>
   <div class="video-slider-container">
-    <h3>Sports<span class="viewAll" (click)="viewAll('sports')">View All</span></h3>
-    <app-video-list [searchedText]="textSearched" [childMessage]="'sports'"></app-video-list>  
+    <app-video-list [searchedText]="textSearched" [category]="'sports'"></app-video-list>  
   </div>
   <div class="video-slider-container">
-    <h3>Mashup Videos<span class="viewAll" (click)="viewAll('mashup song')">View All</span></h3>
-    <app-video-list [searchedText]="textSearched" [childMessage]="'mashup song'"></app-video-list>
+    <app-video-list [searchedText]="textSearched" [category]="'mashup song'"></app-video-list>
   </div>
   <div class="video-slider-container">
-    <h3>TVF<span class="viewAll" (click)="viewAll('tvf')">View All</span></h3>
-    <app-video-list [searchedText]="textSearched" [childMessage]="'tvf'"></app-video-list>
+    <app-video-list [searchedText]="textSearched" [category]="'tvf'"></app-video-list>
   </div>
 </div>
 <app-footer></app-footer>

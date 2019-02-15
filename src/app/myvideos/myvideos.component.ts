@@ -131,11 +131,7 @@ export class MyvideosComponent implements OnInit {
     },5000)
   }
 
-  viewAll(cat){
-    this.router.navigate(['discoveredPage', { category: cat}]);
-  }
-
-  searchingText(textVal){
-    this.textSearched = 'textVal';
+  getTotalAmt(){
+    this.textSearched = this.searchText;
   }
 }

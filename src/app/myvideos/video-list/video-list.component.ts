@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   providers : [VideodataService]
 })
 export class VideoListComponent implements OnInit {
-  @Input() childMessage: string;
+  @Input() category: string;
   @Input() searchedText: string;
   message;
   urlArr:any = [];
@@ -29,10 +29,6 @@ export class VideoListComponent implements OnInit {
         this.admin = true;
       }
     }
-    console.log("this.childMessage", this.childMessage)
-    this.message = this.childMessage;
-    console.log("this.searchedText", this.searchedText);
-    this.textSearching = this.searchedText;
     this.gettingVideoData();
   }
 
@@ -114,6 +110,10 @@ export class VideoListComponent implements OnInit {
         console.log(message)
       }
     },5000)
+  }
+  
+  viewAll(cat){
+    this.router.navigate(['discoveredPage', { category: cat}]);
   }
 
 

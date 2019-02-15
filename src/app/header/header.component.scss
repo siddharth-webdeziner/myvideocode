@@ -41,50 +41,55 @@ header {
                     }
                 }
             }
-            .hambergerIcon {
-                height: 5px;
+            .menuIcon{
                 width: 50px;
-                position: relative;
-                border-radius: 50px;
-                background-color: #fff;
-                -webkit-transform: translate(-50%, -50%) rotate(0deg);
-                transform: translate(-50%, -50%) rotate(0deg);
-                transition: all ease 0.5s;
-                margin-top: 6px;
-                z-index: 999;
-                cursor: pointer;
-                right: -20px;
-                &::before,
-                &::after {
-                    content: "";
-                    position: absolute;
-                    height: inherit;
-                    border-radius: inherit;
-                    background-color: inherit;
-                    margin: auto;
-                    width: 50%;
+                height: 50px;
+                display: contents;
+                .hambergerIcon {
+                    height: 5px;
+                    width: 50px;
+                    position: relative;
+                    border-radius: 50px;
+                    background-color: #fff;
+                    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+                    transform: translate(-50%, -50%) rotate(0deg);
                     transition: all ease 0.5s;
+                    margin-top: 6px;
+                    z-index: 999;
+                    cursor: pointer;
+                    right: -20px;
+                    &::before,
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        height: inherit;
+                        border-radius: inherit;
+                        background-color: inherit;
+                        margin: auto;
+                        width: 50%;
+                        transition: all ease 0.5s;
+                    }
+                    &::before {
+                        top: -15px;
+                        left: 0;
+                        transform-origin: left;
+                    }
+                    &::after {
+                        bottom: -15px;
+                        right: 0;
+                        transform-origin: right;
+                    }
                 }
-                &::before {
-                    top: -15px;
-                    left: 0;
-                    transform-origin: left;
-                }
-                &::after {
-                    bottom: -15px;
-                    right: 0;
-                    transform-origin: right;
-                }
-            }
-            .in {
-                transform: translate(-50%, -50%) rotate(135deg);
-                &::before {
-                    top: 0;
-                    transform: translateX(100%) rotate(-90deg);
-                }
-                &::after {
-                    bottom: 0;
-                    transform: translateX(-100%) rotate(-90deg);
+                .in {
+                    transform: translate(-50%, -50%) rotate(135deg);
+                    &::before {
+                        top: 0;
+                        transform: translateX(100%) rotate(-90deg);
+                    }
+                    &::after {
+                        bottom: 0;
+                        transform: translateX(-100%) rotate(-90deg);
+                    }
                 }
             }
         }
