@@ -31,6 +31,7 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
 import { SavedvideoComponent } from './savedvideo/savedvideo.component';
 import { FooterComponent } from './footer/footer.component';
 import { DiscoverComponent } from './discover/discover.component';
+import { VideoListComponent } from './myvideos/video-list/video-list.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -64,7 +65,8 @@ export function getAuthServiceConfigs() {
     RegisteruserComponent,
     SavedvideoComponent,
     FooterComponent,
-    DiscoverComponent
+    DiscoverComponent,
+    VideoListComponent
   ],
   imports: [
     BrowserModule,

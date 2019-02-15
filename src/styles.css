@@ -15,10 +15,6 @@ body {
     background-size: cover;
 }
 
-.darkTheme * {
-    color: rgba(255, 255, 255, .75) !important;
-}
-
 .lightTheme .videoBox li>div {
     background: #fff !important;
 }
