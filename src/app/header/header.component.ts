@@ -10,6 +10,13 @@ import {DOCUMENT} from '@angular/common';
 export class HeaderComponent implements OnInit {
   auth:any;
   id:boolean;
+  isIn = false;
+
+  toggleState() {
+    let bool = this.isIn;
+    this.isIn = bool === false ? true : false; 
+  }
+
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private router: Router

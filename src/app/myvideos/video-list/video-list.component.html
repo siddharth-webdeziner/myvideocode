@@ -1,7 +1,6 @@
 <ul class="videoBox">
   <li *ngFor="let item of urlArr | filter : textSearched | videofilter : message" class="col-lg-2 col-md-3 col-sm-4">
       <section>
-        >>>>>>>>>>>>{{textSearched}}
         <div (click)="openVideo(item)">
           <img [src]="thunbnailURL(item.videocode)" alt="">
           <h4 *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></h4>

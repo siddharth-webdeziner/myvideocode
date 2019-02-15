@@ -16,7 +16,7 @@ export class VideoListComponent implements OnInit {
   savedVideos:any = [];
   auth;
   admin;
-  textSearched;
+  textSearching;
   constructor(
     public videodataService: VideodataService,
     private router: Router,
@@ -29,9 +29,10 @@ export class VideoListComponent implements OnInit {
         this.admin = true;
       }
     }
+    console.log("this.childMessage", this.childMessage)
     this.message = this.childMessage;
     console.log("this.searchedText", this.searchedText);
-    this.textSearched = this.searchedText;
+    this.textSearching = this.searchedText;
     this.gettingVideoData();
   }
 

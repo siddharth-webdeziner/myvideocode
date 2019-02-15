@@ -136,6 +136,6 @@ export class MyvideosComponent implements OnInit {
   }
 
   searchingText(textVal){
-    this.textSearched = textVal;
+    this.textSearched = 'textVal';
   }
 }
