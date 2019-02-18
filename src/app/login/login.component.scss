@@ -1,14 +1,15 @@
 $font-color: #fff !important;
-.formContainer{
+.formContainer {
     width: 100%;
     max-width: 500px;
-    margin: 50px auto;
-    button{
+    margin: 80px auto;
+    height: 70vh;
+    button {
         color: $font-color;
     }
 }
 
-.fb-btn{
+.fb-btn {
     background: #3B5998;
     border: 1px solid #3B5998;
     padding: 10px 20px;
@@ -21,14 +22,11 @@ $font-color: #fff !important;
         text-decoration: none;
         padding-right: 5px;
     }
-
     /* Set a specific color for each brand */
-
     /* Facebook */
     .fa-facebook {
         color: $font-color;
     }
-
     &:hover {
         background: #5d7fc7;
     }

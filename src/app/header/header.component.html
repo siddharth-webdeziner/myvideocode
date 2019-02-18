@@ -23,6 +23,7 @@
             <li><a href="javascript:void(0)" [routerLink]="['/savedvideo']">My Videos</a></li>
             <li><a href="javascript:void(0)">Browse</a></li>
             <li><a href="javascript:void(0)" (click)="changeTheme()">Themes</a></li>
+            <li *ngIf="auth"><a class="nav-link" href="javascript:void(0)" (click)="logout()">Logout</a></li>
         </ul>
     </aside>
     <!-- <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">

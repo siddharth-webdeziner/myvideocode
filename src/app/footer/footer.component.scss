@@ -1,12 +1,12 @@
 footer {
     background: #343a40 !important;
-    min-height: 70px;
+    // min-height: 70px;
     display: flex;
     padding: 10px 20px;
     justify-content: space-between;
     position: relative;
     bottom: -14px;
-    p{
+    p {
         float: left;
         align-self: center;
         margin: 0;
@@ -16,15 +16,15 @@ footer {
         margin-bottom: 0;
         padding-left: 0;
         float: right;
-        li{
+        li {
             margin-right: 10px;
             display: inline-block;
             vertical-align: bottom;
         }
-        li.fb-like{
+        li.fb-like {
             margin-bottom: 5px;
         }
-        li.pin-it{
+        li.pin-it {
             margin-bottom: 6px;
         }
     }
