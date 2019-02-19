@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {Router} from '@angular/router';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
-import { VideodataService } from '../services/videodata.service';
+import { VideodataService } from '../../services/videodata.service';
 import {
   AuthService,
   FacebookLoginProvider,
