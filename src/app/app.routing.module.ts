@@ -1,10 +1,10 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddvideosComponent } from './addvideos/addvideos.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './core/login/login.component';
 import { MyvideosComponent } from './myvideos/myvideos.component';
 import { DisplayvideoComponent } from './displayvideo/displayvideo.component';
-import { RegisteruserComponent } from './registeruser/registeruser.component';
+import { RegisteruserComponent } from './core/registeruser/registeruser.component';
 import { SavedvideoComponent } from './savedvideo/savedvideo.component'
 import { DiscoverComponent } from './discover/discover.component';
 
