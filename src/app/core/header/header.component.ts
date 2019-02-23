@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2, Inject  } from '@angular/core';
 import {Router} from '@angular/router';
 import {DOCUMENT} from '@angular/common';
+import { menuItems } from '../../constant/menu-item';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,7 @@ export class HeaderComponent implements OnInit {
   auth:any;
   id:boolean;
   isIn = false;
+  menuItems = menuItems;
 
   toggleState() {
     let bool = this.isIn;
@@ -23,6 +25,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log("sasasas",menuItems);
     this.id = false;
     if(localStorage.getItem("selectedTheme") == "darkTheme"){
       this.document.body.classList.remove('lightTheme');

@@ -6,12 +6,29 @@
         //width: 16.666%;
         display: inline-block;
         vertical-align: top;
-        padding: 10px;
-        cursor: pointer;
-        div:first-child{
+        padding: 0 5px 10px 5px;
+        @media screen and (max-width: 1360px) and (min-width: 1161px) {
+            max-width: 20%;
+        }
+        @media screen and (max-width: 1160px) and (min-width: 990px) {
+            max-width: 25%;
+        }
+        @media screen and (max-width: 575px) {
+            max-width: 50%;
+        }
+        @media screen and (max-width: 480px) {
+            max-width: 100%;
+            padding: 0 0 15px 0px;
+        }
+        section{
             background: #000;
-            padding: 0px 10px 5px;
+            padding: 0px 10px 0px;
             overflow: hidden;
+            position: relative;
+            div:first-child{
+                cursor: pointer;
+                padding-bottom: 30px;
+            }
         }
         embed{
             display: block;
@@ -22,10 +39,11 @@
         }
         h4{
             font-size: 14px;
-            color: #333;
             text-align: center;
             padding: 5px 0;
             text-align: left;
+            height: 40px;
+            overflow: hidden;
             @media screen and (max-width: 640px) {
                 font-size: 14px;
             }
@@ -40,14 +58,22 @@
             display: inline-block;
         }
         .otherOptions{
+            position: absolute;
+            width: 92%;
+            bottom: 5px;
             span{
                 position: relative;
                 z-index: 99;
                 float: left;
                 i{
+                    cursor: pointer;
                     &:hover{
                         color: #fff !important;
                     }
+                }
+                i.saved{
+                    color: #fff !important;
+                    cursor: default;
                 }
             }
             span.deleteVideo{
@@ -58,45 +84,10 @@
                 display: block;
                 content: "";
             }
-        }
-    }
-}
-
-.searchVideos{
-    width: 100%;
-    max-width: 450px;
-    padding: 5px 10px;
-    margin: 0px auto 20px;;
-    display: block;
-    &:after{
-     clear: both;
-     display: block;
-     content:"";   
-    }
-}
-
-.videoPopup {
-    .modal-dialog{
-        max-width: 100%;
-        object{
-            width:100%;
-            height: 75vh;
-        }
-    }
-}
-
-.videoSlider{
-    padding-bottom: 20px;
-    .carousel-item{
-        text-align: center;
-    }
-}
-
-.lightTheme{
-    .videoBox{
-        li{
-            div.first-child{
-                background: #fff;
+            span.likeVideo{
+                font-size: 18px;
+                margin-left: 15px;
+                margin-top: -3px;
             }
         }
     }
