@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="container-fluid">
+<div class="container-fluid container-top-spacing">
   <input type="text" [(ngModel)]="searchText" placeholder="Search video" class="searchVideos">
   <ul class="videoBox">
     <li *ngFor="let item of urlArr | filter : searchText" class="col-lg-2 col-md-3 col-sm-4">

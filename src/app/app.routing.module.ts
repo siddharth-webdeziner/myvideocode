@@ -7,6 +7,7 @@ import { DisplayvideoComponent } from './displayvideo/displayvideo.component';
 import { RegisteruserComponent } from './core/registeruser/registeruser.component';
 import { SavedvideoComponent } from './savedvideo/savedvideo.component'
 import { DiscoverComponent } from './discover/discover.component';
+import { ExplorelistComponent } from './myvideos/explorelist/explorelist.component'
 
 const appRoutes: Routes = [
   { 
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
   { path: 'displayvideo', component: DisplayvideoComponent },
   { path: 'register', component: RegisteruserComponent },
   { path: 'savedvideo', component: SavedvideoComponent },
-  { path: 'discoveredPage', component: DiscoverComponent },
+  { path: 'discovered', component: DiscoverComponent },
+  { path: 'explorelist', component: ExplorelistComponent },
 //   { path: '**', component: NotFoundComponent }
 ];
 

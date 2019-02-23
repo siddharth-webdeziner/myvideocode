@@ -32,6 +32,7 @@ import { SavedvideoComponent } from './savedvideo/savedvideo.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { VideoListComponent } from './myvideos/video-list/video-list.component';
+import { ExplorelistComponent } from './myvideos/explorelist/explorelist.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -66,7 +67,8 @@ export function getAuthServiceConfigs() {
     SavedvideoComponent,
     FooterComponent,
     DiscoverComponent,
-    VideoListComponent
+    VideoListComponent,
+    ExplorelistComponent
   ],
   imports: [
     BrowserModule,
