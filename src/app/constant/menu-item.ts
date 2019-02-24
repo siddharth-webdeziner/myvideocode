@@ -12,6 +12,10 @@ export const menuItems = [
       routeLink: '/trending'
     },
     {
+      label: 'Add Videos',
+      routeLink: '/addvideos'
+    },
+    {
       label: 'Theme',
       routeLink: ''
     }

@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   { path: 'displayvideo', component: DisplayvideoComponent },
   { path: 'register', component: RegisteruserComponent },
   { path: 'savedvideo', component: SavedvideoComponent },
-  { path: 'discovered', component: DiscoverComponent },
+  { path: 'discover', component: DiscoverComponent },
   { path: 'explorelist', component: ExplorelistComponent },
 //   { path: '**', component: NotFoundComponent }
 ];
