@@ -1,0 +1,30 @@
+<header>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <a class="navbar-brand vdo-logo" href="javascript:void(0)" [routerLink]="['/myvideos']">
+            <img src="../../assets/images/logo.png" width="55" /> V
+            <sub>D</sub>O
+        </a>
+        <div class="headerRight">
+            <div class="headerMenu">
+                <a href="javascript:void(0)" *ngIf="!auth" [routerLink]="['/login']">Login</a>
+                <a href="javascript:void(0)" *ngIf="!auth" [routerLink]="['/register']">Sign Up</a>
+            </div>
+            <div class="menuIcon" (click)="toggleState()">
+                <span class="hambergerIcon" [ngClass]="{ 'in': isIn }"></span>
+            </div>
+        </div>
+    </nav>
+    <aside [ngClass]="{ 'in': isIn }">
+        <ul>
+            <li class="userLogin" *ngIf="auth">
+                <img [src]="auth.userimg" alt="profileimg1" *ngIf="auth && auth.userimg != 'dummy_media.png'">
+                <img src="../../assets/images/dummy_media.png" alt="profileimg2" *ngIf="auth && auth.userimg == 'dummy_media.png'">
+                <span>Welcome, {{auth.username}}</span>
+            </li>
+            <li *ngFor="let menu of menuItems">
+                <a [routerLink]="[menu.routeLink]">{{menu.label}}</a>
+            </li>
+            <li *ngIf="auth"><a class="nav-link" href="javascript:void(0)" (click)="logout()">Logout</a></li>
+        </ul>
+    </aside>
+</header>

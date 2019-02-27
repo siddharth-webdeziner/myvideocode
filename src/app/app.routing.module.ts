@@ -1,12 +1,13 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddvideosComponent } from './addvideos/addvideos.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './core/login/login.component';
 import { MyvideosComponent } from './myvideos/myvideos.component';
 import { DisplayvideoComponent } from './displayvideo/displayvideo.component';
-import { RegisteruserComponent } from './registeruser/registeruser.component';
+import { RegisteruserComponent } from './core/registeruser/registeruser.component';
 import { SavedvideoComponent } from './savedvideo/savedvideo.component'
 import { DiscoverComponent } from './discover/discover.component';
+import { ExplorelistComponent } from './myvideos/explorelist/explorelist.component'
 
 const appRoutes: Routes = [
   { 
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
   { path: 'displayvideo', component: DisplayvideoComponent },
   { path: 'register', component: RegisteruserComponent },
   { path: 'savedvideo', component: SavedvideoComponent },
-  { path: 'discoveredPage', component: DiscoverComponent },
+  { path: 'discover', component: DiscoverComponent },
+  { path: 'explorelist', component: ExplorelistComponent },
 //   { path: '**', component: NotFoundComponent }
 ];
 

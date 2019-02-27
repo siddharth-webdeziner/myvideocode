@@ -23,15 +23,16 @@ import { NewvideosDirective } from './directives/newvideos.directive';
 import { SqrtPipe } from './pipe/sqrt'
 import { FilterPipe} from './filter.pipe';
 import { VideoFilterPipe} from './videofilter.pipe';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './core/login/login.component';
 import { DisplayvideoComponent } from './displayvideo/displayvideo.component';
-import { HeaderComponent } from './header/header.component';
-import { LoaderComponent } from './loader/loader.component';
-import { RegisteruserComponent } from './registeruser/registeruser.component';
+import { HeaderComponent } from './core/header/header.component';
+import { LoaderComponent } from './core/loader/loader.component';
+import { RegisteruserComponent } from './core/registeruser/registeruser.component';
 import { SavedvideoComponent } from './savedvideo/savedvideo.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './core/footer/footer.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { VideoListComponent } from './myvideos/video-list/video-list.component';
+import { ExplorelistComponent } from './myvideos/explorelist/explorelist.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -66,7 +67,8 @@ export function getAuthServiceConfigs() {
     SavedvideoComponent,
     FooterComponent,
     DiscoverComponent,
-    VideoListComponent
+    VideoListComponent,
+    ExplorelistComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,12 @@
 <app-header></app-header>
-
+<div class="container-fluid container-top-spacing">
 <ul class="videoBox">
-  <li *ngFor="let item of catArr | videofilter : category" class="col-lg-2 col-md-3 col-sm-4">
-    <img [src]="thunbnailURL(item.videocode)" alt="" (click)="openVideo(item)" data-toggle="modal" data-target="#myModal">
-    <h4 *ngIf="item.desc !=''">{{item.desc}}</h4>
-    <h4 *ngIf="item.desc ==''">Title is not defined</h4>
+  <li *ngFor="let cat of categoriesItems" class="col-lg-2 col-md-3 col-sm-4">
+    <section (click)="viewAll(cat.redirectLink)">
+      <!-- <img [src]="thunbnailURL(item.videocode)" alt="" (click)="openVideo(item)" data-toggle="modal" data-target="#myModal"> -->
+      <h4>{{cat.label | slice:0:50}}<span *ngIf="cat.label.length >=40">...</span></h4>
+    </section>
   </li>
 </ul>
-
+</div>
 <app-footer></app-footer>

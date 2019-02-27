@@ -113,8 +113,6 @@ export class VideoListComponent implements OnInit {
   }
   
   viewAll(cat){
-    this.router.navigate(['discoveredPage', { category: cat}]);
+    this.router.navigate(['explorelist', { category: cat}]);
   }
-
-
 }

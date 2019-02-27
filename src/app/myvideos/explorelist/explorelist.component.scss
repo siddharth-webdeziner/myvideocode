@@ -1,5 +1,4 @@
 .videoBox{
-    margin-top: 100px;
     padding:0;
     text-align: center;
     min-height: 150px;
@@ -23,21 +22,12 @@
         }
         section{
             background: #000;
-            padding: 15px 10px;
+            padding: 0px 10px 0px;
             overflow: hidden;
             position: relative;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 150px;
             div:first-child{
                 cursor: pointer;
                 padding-bottom: 30px;
-            }
-            &:hover{
-                background: #fff;
-                color: #333;
             }
         }
         embed{
@@ -52,16 +42,17 @@
             text-align: center;
             padding: 5px 0;
             text-align: left;
-            height: auto;
+            height: 40px;
             overflow: hidden;
-            text-align: center;
-            margin-bottom: 0;
             @media screen and (max-width: 640px) {
                 font-size: 14px;
             }
             @media screen and (max-width: 575px) {
                 font-size: 14px;
             }
+        }
+        &:last-child{
+            display: none;
         }
         &:first-child{
             display: inline-block;
