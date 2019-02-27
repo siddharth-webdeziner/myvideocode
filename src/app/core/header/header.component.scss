@@ -155,9 +155,11 @@ header {
 }
 
 $mini-mobile: 767px;
+$mini-screen: 480px;
 @media only screen and (max-width: $mini-mobile) {
     header {
         nav {
+          height: auto;
             .headerRight {
                 .headerMenu {
                     margin-right: 15px;
@@ -165,6 +167,14 @@ $mini-mobile: 767px;
             }
         }
     }
+}
+
+@media only screen and (max-width: $mini-screen) {
+  header {
+      nav {
+        padding: .5rem .5rem;
+    }
+  }
 }
 
 // header{

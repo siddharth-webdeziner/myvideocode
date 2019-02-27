@@ -1,4 +1,5 @@
 .videoDisplay{
+    margin-top:110px;
     object{
         width:100%;
         max-width: 900px;
@@ -195,6 +196,6 @@
     transition: transform .2s ease-in-out, background-color .2s ease-in-out;
     transition: transform .2s ease-in-out, background-color .2s ease-in-out, -webkit-transform .2s ease-in-out;
   }
-  ::-webkit-scrollbar,::-moz-scrollbar { 
-      display: none; 
+  ::-webkit-scrollbar,::-moz-scrollbar {
+      display: none;
   }
