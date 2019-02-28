@@ -33,10 +33,9 @@ export class DisplayvideoComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.paramsSubscription = this.route.params
-      .subscribe((params) => {
-        this.itemId = params['itemData'];
-      })
+    this.paramsSubscription = this.route.params.subscribe(params => {
+      this.itemId = params['id'];
+    });
       this.loadContent(this.itemId);
   }
 
@@ -46,11 +45,8 @@ export class DisplayvideoComponent implements OnInit {
 
   loadContent(id) {
     this.videodataService.getVideoData().subscribe(data => {
-      console.log('>>>>>>>>>>>>>>>>>>>> ',data.videolist);
       for(let i = 0; i < data.videolist.length; i++) {
-        console.log(data.videolist[i]._id == id);
         if(data.videolist[i]._id == id) {
-          console.log(">>>>>>>>>>>>>>>.. ", data.videolist[i]._id == id);
           this.category = data.videolist[i].videocat;
           this.title = data.videolist[i].videotitle;
           this.playbackurl = data.videolist[i].videocode;
@@ -72,9 +68,7 @@ export class DisplayvideoComponent implements OnInit {
   }
 
   loadRelatedVideos(category){
-    console.log("categorycategory : ", category);
     this.videodataService.getVideoData().subscribe(data => {
-      console.log("data.videolist.lengthdata.videolist.length", data.videolist.length)
       this.catArr = data.videolist;
       //this.category = category;
     }); 

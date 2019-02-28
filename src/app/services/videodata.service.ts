@@ -22,7 +22,6 @@ export class VideodataService {
     };
     //return this.http.get(this.url+"videolist", this.config).map(res => {
     return this.http.get(this.url+"videolist").map(res => {
-      console.log("res.json() : ", res.json());
       this.currentMessage = res.json();
       this.VideoData = res.json();
       return res.json()
@@ -55,7 +54,6 @@ export class VideodataService {
   }
 
   addvideos(user){
-    console.log("useruseruseruser : ", user);
     return this.http.post(this.url+"addvideo",{
       "videocode": user.lastCode,
       "videotitle": user.desc,

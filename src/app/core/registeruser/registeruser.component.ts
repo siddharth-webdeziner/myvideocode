@@ -33,7 +33,6 @@ export class RegisteruserComponent implements OnInit {
     var loginArr = [];
     loginArr.push(userForm.value);
     this.videodataService.registerUser(userForm.value).subscribe(data => {
-      console.log("data : ",data.response)
       if(data.response == 'error') {
         this.errorMsg = true;
         this.successMsg = false;
