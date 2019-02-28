@@ -17,7 +17,7 @@ const appRoutes: Routes = [
   { path: 'addvideos', component: AddvideosComponent },
   { path: 'myvideos', component: MyvideosComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'displayvideo', component: DisplayvideoComponent },
+  { path: 'displayvideo/:id', component: DisplayvideoComponent },
   { path: 'register', component: RegisteruserComponent },
   { path: 'savedvideo', component: SavedvideoComponent },
   { path: 'discover', component: DiscoverComponent },

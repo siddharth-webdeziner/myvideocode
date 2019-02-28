@@ -25,9 +25,7 @@ export class ExplorelistComponent implements OnInit {
       .subscribe((params) => {
         this.category = params['category'];
         this.videodataService.getVideoData().subscribe(data => {
-          console.log("data.videolist.lengthdata.videolist.length", data.videolist.length)
           this.catArr = data.videolist;
-          console.log("this.catArr", this.catArr)
           //this.category = category;
         }); 
       })

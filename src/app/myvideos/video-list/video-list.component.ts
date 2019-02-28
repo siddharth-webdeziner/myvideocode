@@ -48,7 +48,8 @@ export class VideoListComponent implements OnInit {
   }
 
   openVideo(item){
-    this.router.navigate(['displayvideo', { itemData: item._id}]);
+    //this.router.navigate(['displayvideo', { itemData: item._id}]);
+    this.router.navigateByUrl(`displayvideo/${item._id}`);
   }
 
   thunbnailURL(item){
@@ -96,11 +97,9 @@ export class VideoListComponent implements OnInit {
   }
 
   downloadVideo(videocode){
-    console.log(videocode);
     var downloadedUrl = "https://www.ssyoutube.com/watch?v="+videocode;
     window.open(downloadedUrl,"Ratting","width=650,height=300,left=150,top=200,toolbar=0,status=0,");
     setTimeout(function(){
-      console.log("clicking !!");
       window.addEventListener('message', function(e) {
         ProcessParentMessage_2(e.data); // e.data hold the message
       } , false);
