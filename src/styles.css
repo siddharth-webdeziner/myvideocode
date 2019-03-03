@@ -66,6 +66,10 @@ h4 {
     padding-top: 85px;
 }
 
+.modal-backdrop.show{
+    display: none !important;
+}
+
 @media screen and (max-width: 767px) {
     body {
         background-size: auto;

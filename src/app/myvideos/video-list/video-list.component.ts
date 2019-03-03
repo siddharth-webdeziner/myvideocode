@@ -20,7 +20,9 @@ export class VideoListComponent implements OnInit {
   constructor(
     public videodataService: VideodataService,
     private router: Router,
-  ) { }
+  ) { 
+    
+  }
 
   ngOnInit() {
     this.auth = JSON.parse(localStorage.getItem('userObj'));
@@ -30,6 +32,7 @@ export class VideoListComponent implements OnInit {
       }
     }
     this.gettingVideoData();
+    console.log("category", this.category);
   }
 
   gettingVideoData(){
@@ -49,7 +52,7 @@ export class VideoListComponent implements OnInit {
 
   openVideo(item){
     //this.router.navigate(['displayvideo', { itemData: item._id}]);
-    this.router.navigateByUrl(`displayvideo/${item._id}`);
+    this.router.navigateByUrl(`displayvideo/${item.videocode}`);
   }
 
   thunbnailURL(item){
