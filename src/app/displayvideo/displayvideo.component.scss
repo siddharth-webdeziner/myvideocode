@@ -1,5 +1,4 @@
 .videoDisplay{
-    margin-top:110px;
     object{
         width:100%;
         max-width: 900px;
@@ -199,3 +198,30 @@
   ::-webkit-scrollbar,::-moz-scrollbar {
       display: none;
   }
+
+
+::ng-deep youtube-player{
+  iframe {
+    width: 100% !important;
+    height: 75vh !important;
+  }
+}
+
+#myModal{
+  display: none !important;
+  .modal-dialog{
+    max-width: 90%;
+    max-height: 90vh;
+    .modal-body {
+      overflow: auto;
+      height: 72vh;
+      .relatedList{
+        cursor: pointer;
+      }
+    }
+  }
+  &.show{
+    display: block !important;
+    background: rgba(0,0,0,0.5);
+  }
+}

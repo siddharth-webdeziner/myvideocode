@@ -15,6 +15,7 @@ import {
 
 // import social buttons module
 import { JwSocialButtonsModule } from 'jw-angular-social-buttons';
+import { YoutubePlayerModule } from 'ngx-youtube-player';
 
 import { AppComponent } from './app.component';
 import { AddvideosComponent } from './addvideos/addvideos.component';
@@ -33,6 +34,7 @@ import { FooterComponent } from './core/footer/footer.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { VideoListComponent } from './myvideos/video-list/video-list.component';
 import { ExplorelistComponent } from './myvideos/explorelist/explorelist.component';
+import { VideoupdateurlDirective } from './directives/videoupdateurl.directive';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -68,7 +70,8 @@ export function getAuthServiceConfigs() {
     FooterComponent,
     DiscoverComponent,
     VideoListComponent,
-    ExplorelistComponent
+    ExplorelistComponent,
+    VideoupdateurlDirective
   ],
   imports: [
     BrowserModule,
@@ -78,6 +81,7 @@ export function getAuthServiceConfigs() {
     HttpModule,
     SocialLoginModule,
     JwSocialButtonsModule,
+    YoutubePlayerModule,
     Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [{
