@@ -18,6 +18,7 @@
         margin: 20px auto 0;
         background: #000;
         padding: 10px 20px 5px;
+        min-height: 400px;
         ul{
             padding-left: 0;
             li{
@@ -42,7 +43,10 @@
         display: inline-block;
         vertical-align: top;
         padding: 10px;
-        embed{
+        background: #000;
+        margin: 0 5px 10px;
+        section{
+          embed{
             display: block;
         }
         img{
@@ -59,7 +63,8 @@
             @media screen and (max-width: 575px) {
                 font-size: 16px;
             }
-        }
+          }
+      }
     }
 }
 
@@ -203,7 +208,7 @@
 ::ng-deep youtube-player{
   iframe {
     width: 100% !important;
-    height: 75vh !important;
+    height: 60vh !important;
   }
 }
 

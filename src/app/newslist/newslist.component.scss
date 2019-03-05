@@ -1,0 +1,123 @@
+page-newslist {
+
+}
+
+.newslists{
+	//background:url('../assets/imgs/bottom-vector.png');
+	background-repeat:no-repeat;
+	background-position: center bottom;
+    background-size:100%;
+    background: #111;
+    padding: 20px;
+    ul{
+        padding: 0;
+        li{
+            list-style: none;
+            clear: both;
+            margin-bottom: 10px;
+            figure {
+                width: 300px;
+                float: left;
+                margin-right: 15px;
+                img {
+                    width: 100%;
+                }
+            }
+            h2 {
+                font-size: 22px;
+                line-height: 24px;
+            }
+        }
+    }
+    &:after{
+        clear: both;
+        display: block;
+        content: "";
+    }
+}
+
+.item-md ion-thumbnail ion-img, .item-md ion-thumbnail img{
+	height:auto !important;
+	border:1px solid #ddd;
+}
+
+.newslists .item-md ion-thumbnail{
+	display: table;
+}
+
+.navTitle{
+	background:rgba(56,137,218,0.5);
+	color:#fff;
+	position:relative;
+}
+
+.newslists .item-md{
+	background: transparent;
+}
+
+.newslists .scroll-content{
+	background: #fff;
+	color: #333;
+}
+
+.newslists .item-md h2{
+	color: #333;
+	font-size:15px;
+	font-weight:bold;
+	text-overflow: inherit;
+	overflow: hidden;
+
+}
+
+.newslists .item-md p{
+	color: #666;
+	font-size: 12px;
+    white-space: pre-line;
+    height: 42px;
+}
+
+.newslists .label-md{
+	margin: 0px 8px 0px 0;
+}
+
+.newslists .list-md{
+	margin: 5px 0 5px;
+	border-bottom: 1px solid #999;
+	padding-bottom: 5px;
+}
+
+.newslists .back-button{
+	display: none;
+}
+
+.newslists ion-title{
+	text-align:center;
+}
+
+.toolbar-title-md{
+	color: #fff;
+}
+
+.toolbar-background-md{
+	background: #8688bc;
+}
+
+.settingPage{
+	position:absolute;
+	right: 0px;
+	cursor:pointer;
+	top: -10px;
+}
+
+.navTitle .back-button{
+	display:none;
+}
+
+.allNewsPage {
+    position: absolute;
+    left: 20px;
+}
+
+.myFeeds ion-list .input-wrapper{
+	align-items: baseline;
+}

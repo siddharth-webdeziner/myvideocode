@@ -16,6 +16,10 @@ export const menuItems = [
       routeLink: '/addvideos'
     },
     {
+      label: 'Insta News',
+      routeLink: '/instanews'
+    },
+    {
       label: 'Theme',
       routeLink: ''
     }

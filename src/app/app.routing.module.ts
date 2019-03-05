@@ -7,7 +7,8 @@ import { DisplayvideoComponent } from './displayvideo/displayvideo.component';
 import { RegisteruserComponent } from './core/registeruser/registeruser.component';
 import { SavedvideoComponent } from './savedvideo/savedvideo.component'
 import { DiscoverComponent } from './discover/discover.component';
-import { ExplorelistComponent } from './myvideos/explorelist/explorelist.component'
+import { ExplorelistComponent } from './myvideos/explorelist/explorelist.component';
+import { NewslistComponent } from './newslist/newslist.component';
 
 const appRoutes: Routes = [
   { 
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   { path: 'savedvideo', component: SavedvideoComponent },
   { path: 'discover', component: DiscoverComponent },
   { path: 'explorelist', component: ExplorelistComponent },
+  { path: 'instanews', component: NewslistComponent },
 //   { path: '**', component: NotFoundComponent }
 ];
 

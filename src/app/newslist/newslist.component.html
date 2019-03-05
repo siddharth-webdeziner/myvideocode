@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div class="container-fluid container-top-spacing">
+  <div class="newslists">
+    <ul class="myFeeds">
+      <li *ngFor="let newslist of newdata; let i = index;">
+        <div (click)="newsDesc(i)">
+          <figure item-start>
+            <!-- <img *ngIf="newslist.urlToImage == ''" src="assets/imgs/noimg.png" width="100px" height="auto"> -->
+            <img *ngIf="newslist.urlToImage != ''" src="{{newslist.urlToImage}}" width="100px" height="auto">
+          </figure>
+          <h2>{{newslist.title}}</h2>
+          <p>{{newslist.description}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<app-footer></app-footer>
