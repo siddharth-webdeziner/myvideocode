@@ -35,6 +35,7 @@ import { DiscoverComponent } from './discover/discover.component';
 import { VideoListComponent } from './myvideos/video-list/video-list.component';
 import { ExplorelistComponent } from './myvideos/explorelist/explorelist.component';
 import { VideoupdateurlDirective } from './directives/videoupdateurl.directive';
+import { NewslistComponent } from './newslist/newslist.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -71,7 +72,8 @@ export function getAuthServiceConfigs() {
     DiscoverComponent,
     VideoListComponent,
     ExplorelistComponent,
-    VideoupdateurlDirective
+    VideoupdateurlDirective,
+    NewslistComponent
   ],
   imports: [
     BrowserModule,
