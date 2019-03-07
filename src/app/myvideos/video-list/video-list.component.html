@@ -7,9 +7,9 @@
             <h4 class="capitalize" *ngIf="item.videotitle !=''">{{category}}</h4>
             <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
             <img [src]="thunbnailURL(item.videocode)" alt="">
-            <p class="video-title" *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<span *ngIf="item.videotitle.length >=40">...</span></p>
           </div>
           <div class="otherOptions">
+            <p class="video-title" *ngIf="item.videotitle !=''">{{item.videotitle | slice:0:50}}<strong *ngIf="item.videotitle.length >=40">...</strong></p>
             <span class="saveVideo" *ngIf="auth">
               <i (click)="saveVideo(item,i)" class="fa fa-save" style="font-size:20px;" *ngIf="checkSavedVideo(item.videocode)" title="Save you Fav Video"></i>
               <i class="fa fa-save saved" style="font-size:20px;" *ngIf="!checkSavedVideo(item.videocode)" title="Saved to your Fav Video"></i>
