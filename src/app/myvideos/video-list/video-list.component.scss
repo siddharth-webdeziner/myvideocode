@@ -62,19 +62,6 @@
             height: auto;
             width: 100%;
         }
-        .video-title{
-            position: absolute;
-            bottom: 21px;
-            width: 100%;
-            font-size: 14px;
-            line-height: 16px;
-            color: #e8e8e8;
-            font-weight: 600;
-            text-align: left;
-            padding:0 10px;
-            background: rgba(0,0,0,0.5);
-
-        }
         &:last-child{
             display: none;
         }
@@ -124,6 +111,14 @@
             span.likeVideo{
                 font-size: 18px;
                 margin-left: 15px;
+            }
+            .video-title{
+                width: 100%;
+                font-size: 14px;
+                line-height: 16px;
+                color: #e8e8e8;
+                font-weight: 600;
+                text-align: left;
             }
         }
     }
