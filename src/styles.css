@@ -6,13 +6,16 @@ body {
     color: rgba(255, 255, 255, .75) !important;
 }
 
-.lightTheme {
+/* .lightTheme {
     background-image: url(assets/images/darkimage.jpg);
 }
 
 .darkTheme {
     background-image: url(assets/images/darkimage.jpg);
     background-size: cover;
+} */
+.capitalize{
+    text-transform: capitalize;
 }
 
 .lightTheme .videoBox li>div {
