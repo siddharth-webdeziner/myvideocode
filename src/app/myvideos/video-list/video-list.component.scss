@@ -4,6 +4,7 @@
     h3 {
         font-size: 22px;
         text-transform: capitalize;
+        color: #333;
         span {
             font-size: 14px;
             float: right;
@@ -22,13 +23,10 @@
     max-height: 445px;
     overflow: hidden;
     li{
-        //width: 16.666%;
         display: inline-block;
         vertical-align: top;
         padding: 0 5px 10px 5px;
-        @media screen and (max-width: 1360px) and (min-width: 1161px) {
-            max-width: 20%;
-        }
+        max-width: 20%;
         @media screen and (max-width: 1160px) and (min-width: 990px) {
             max-width: 25%;
         }
@@ -40,14 +38,10 @@
             padding: 0 0 15px 0px;
         }
         section{
-            background: #000;
-            padding: 0px 10px 0px;
+            background: #111;
             overflow: hidden;
             position: relative;
-            div:first-child{
-                cursor: pointer;
-                padding-bottom: 30px;
-            }
+            cursor: pointer;
         }
         embed{
             display: block;
@@ -57,18 +51,29 @@
             margin-top: -5px;
         }
         h4{
-            font-size: 14px;
-            text-align: center;
-            padding: 5px 0;
+            font-size: 16px;
             text-align: left;
-            height: 40px;
+            position: absolute;
+            top: 0;
+            background: rgba(0,0,0,0.5);
+            padding: 5px 10px;
+            line-height: 18px;
             overflow: hidden;
-            @media screen and (max-width: 640px) {
-                font-size: 14px;
-            }
-            @media screen and (max-width: 575px) {
-                font-size: 14px;
-            }
+            height: auto;
+            width: 100%;
+        }
+        .video-title{
+            position: absolute;
+            bottom: 21px;
+            width: 100%;
+            font-size: 14px;
+            line-height: 16px;
+            color: #e8e8e8;
+            font-weight: 600;
+            text-align: left;
+            padding:0 10px;
+            background: rgba(0,0,0,0.5);
+
         }
         &:last-child{
             display: none;
@@ -78,21 +83,34 @@
         }
         .otherOptions{
             position: absolute;
-            width: 92%;
-            bottom: 5px;
+            width: 100%;
+            bottom: 0px;
+            padding: 0 10px;
+            background: rgba(0,0,0,0.5);
             span{
                 position: relative;
                 z-index: 9;
                 float: left;
+                background: #fff;
+                padding: 0px 6px;
+                border-radius: 50%;
+                margin: 5px 0;
                 i{
                     cursor: pointer;
-                    &:hover{
-                        color: #fff !important;
+                    &:before {
+                        color: #333;
+                        font-size: 16px;
                     }
                 }
                 i.saved{
-                    color: #fff !important;
+                    color: #333 !important;
                     cursor: default;
+                }
+                &:hover {
+                    background: orangered;
+                    i:before{
+                        color: #fff;
+                    }
                 }
             }
             span.deleteVideo{
@@ -106,7 +124,6 @@
             span.likeVideo{
                 font-size: 18px;
                 margin-left: 15px;
-                margin-top: -3px;
             }
         }
     }
