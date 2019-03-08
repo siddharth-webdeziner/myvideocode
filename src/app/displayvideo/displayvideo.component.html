@@ -4,7 +4,7 @@
     <div class="videoContainer">
       <!-- Button to Open the Modal -->
       <h3>{{category}}</h3>
-      <youtube-player 
+      <youtube-player
         [videoId]="videoId"
         (ready)="savePlayer($event)"
         (change)="onStateChange($event)"
@@ -50,18 +50,18 @@
     </section>
   </li>
 </ul>
-<app-footer></app-footer>
+
 
 <!-- The Modal -->
 <div class="modal" [class.show]="enable" id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
-  
+
         <!-- Modal Header -->
         <div class="modal-header">
           <button type="button" class="close" (click)="closemodal()">&times;</button>
         </div>
-  
+
         <!-- Modal body -->
         <div class="modal-body">
           <ul class="videoBox">
@@ -74,12 +74,12 @@
             </li>
           </ul>
         </div>
-  
+
         <!-- Modal footer -->
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" (click)="closemodal()">Close</button>
         </div>
-  
+
       </div>
     </div>
   </div>
