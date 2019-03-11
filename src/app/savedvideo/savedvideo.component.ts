@@ -30,6 +30,7 @@ export class SavedvideoComponent implements OnInit {
 
   gettingSavedVideoData(emailid){
     this.videodataService.getSavedVideoData(emailid).subscribe(data => {
+      console.log(data.videolist);
       this.urlArr = data.videolist;
     })
   }

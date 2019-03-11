@@ -36,7 +36,7 @@ export class ExplorelistComponent implements OnInit {
   }
 
   openVideo(item){
-    this.router.navigate(['displayvideo', { itemData: item._id}]);
+    this.router.navigateByUrl(`displayvideo/${item.videocode}`);
   }
 
 }

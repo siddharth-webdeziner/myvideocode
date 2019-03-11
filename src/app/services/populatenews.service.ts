@@ -8,7 +8,7 @@ export class PopulatenewsService {
   url;
   currentNews;
   constructor(private http : Http) {
-    this.url  = 'https://newsapi.org/v2/top-headlines?country=us&apiKey=7245bbaa73a246deaebb09ecd5f2eeee';
+    this.url  = 'https://newsapi.org/v2/everything?sources=the-times-of-india&apiKey=7245bbaa73a246deaebb09ecd5f2eeee';
   }
 
   getNewsData(){

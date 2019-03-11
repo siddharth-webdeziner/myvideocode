@@ -11,6 +11,7 @@ import {Router} from '@angular/router';
 export class VideoListComponent implements OnInit {
   @Input() category: string;
   @Input() searchedText: string;
+  @Input() viewList: string;
   message;
   urlArr:any = [];
   savedVideos:any = [];

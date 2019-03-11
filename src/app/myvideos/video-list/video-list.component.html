@@ -1,7 +1,7 @@
 <div class="videoOuter">
   <!-- <h3>{{category}}<span class="viewAll" (click)="viewAll(category)">View All</span></h3> -->
   <ul class="videoBox">
-    <li *ngFor="let item of urlArr | filter : searchedText | videofilter : category; let i = index;" class="col-lg-2 col-md-3 col-sm-4" [hidden]="(i>7)">
+    <li *ngFor="let item of urlArr | filter : searchedText | videofilter : category; let i = index;" class="col-lg-2 col-md-3 col-sm-4" [hidden]="(i > 7 && viewList)">
       <section>
         <div (click)="openVideo(item)">
           <h4 class="capitalize" *ngIf="item.videotitle !=''">{{category}}</h4>
@@ -26,7 +26,7 @@
         </div>
       </section>
     </li>
-    <li class="viewAll">
+    <li class="viewAll" *ngIf='viewList'>
       <section>
         <span (click)="viewAll(category)">View All</span>
       </section>
