@@ -41,7 +41,7 @@
   <br />
 </div>
 
-<ul class="videoBox">
+<!-- <ul class="videoBox">
   <li *ngFor="let item of catArr | videofilter : category" class="col-lg-2 col-md-3 col-sm-4">
     <section>
       <img [src]="thunbnailURL(item.videocode)" alt="" (click)="openVideo(item)" data-toggle="modal" data-target="#myModal">
@@ -49,7 +49,8 @@
       <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
     </section>
   </li>
-</ul>
+</ul> -->
+<app-video-list [viewList]="false" [searchedText]="textSearched" [category]="category"></app-video-list>
 
 
 <!-- The Modal -->
@@ -64,7 +65,7 @@
 
         <!-- Modal body -->
         <div class="modal-body">
-          <ul class="videoBox">
+          <!-- <ul class="videoBox">
             <li *ngFor="let item of catArr | videofilter : category" class="col-lg-2 col-md-3 col-sm-4 relatedList">
               <section (click)="openVideo(item); closemodal();">
                 <img [src]="thunbnailURL(item.videocode)" alt="" data-toggle="modal" data-target="#myModal">
@@ -72,7 +73,8 @@
                 <h4 *ngIf="item.videotitle ==''">Title is not defined</h4>
               </section>
             </li>
-          </ul>
+          </ul> -->
+          <app-video-list [viewList]="false" [searchedText]="textSearched" [category]="category"></app-video-list>
         </div>
 
         <!-- Modal footer -->
