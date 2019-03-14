@@ -36,6 +36,7 @@ import { VideoListComponent } from './myvideos/video-list/video-list.component';
 import { ExplorelistComponent } from './myvideos/explorelist/explorelist.component';
 import { VideoupdateurlDirective } from './directives/videoupdateurl.directive';
 import { NewslistComponent } from './newslist/newslist.component';
+import { SocialsharingComponent } from './core/socialsharing/socialsharing.component';
 
 // Configs 
 export function getAuthServiceConfigs() {
@@ -73,7 +74,8 @@ export function getAuthServiceConfigs() {
     VideoListComponent,
     ExplorelistComponent,
     VideoupdateurlDirective,
-    NewslistComponent
+    NewslistComponent,
+    SocialsharingComponent
   ],
   imports: [
     BrowserModule,
