@@ -1,6 +1,7 @@
+<app-loader *ngIf="loadingPage"></app-loader>
 <app-header></app-header>
-<div class="container-fluid container-top-spacing">
-  <input list="browsers" name="browser" (input)="getTotalAmt()" [(ngModel)]="searchText" placeholder="Search video" class="searchVideos">
+<div class="container-fluid container-top-spacing"  *ngIf="!loadingPage">
+  <input list="browsers" name="browser" (input)="getChange()" [(ngModel)]="searchText" placeholder="Search video" class="searchVideos">
   <datalist id="browsers">
     <option value="Shahrukh">
     <option value="Mashup">
@@ -35,4 +36,3 @@
     <app-video-list [viewList]="true" [searchedText]="textSearched" [category]="'tvf'"></app-video-list>
   </div>
 </div>
-<app-loader *ngIf=""></app-loader>

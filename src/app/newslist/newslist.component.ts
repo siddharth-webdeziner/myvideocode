@@ -9,11 +9,13 @@ import { PopulatenewsService } from '../services/populatenews.service';
 })
 export class NewslistComponent implements OnInit {
   newdata;
+  loadingPage;
   constructor(
     private populatenewsService: PopulatenewsService
   ) { }
 
   ngOnInit() {
+    this.loadingPage = true;
     this.newsLoaded();
   }
 
@@ -21,6 +23,7 @@ export class NewslistComponent implements OnInit {
     this.populatenewsService.getNewsData().subscribe(data => {
       console.log("data : " ,data.articles)
       this.newdata = data.articles;
+      setTimeout(_=>{this.loadingPage = false},1000);
     })
   }
 

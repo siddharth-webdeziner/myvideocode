@@ -1,5 +1,6 @@
+<app-loader *ngIf="loadingPage"></app-loader>
 <app-header></app-header>
-<div class="container-fluid container-top-spacing">
+<div class="container-fluid container-top-spacing" *ngIf="!loadingPage">
   <div class="newslists">
     <ul class="myFeeds">
       <li *ngFor="let newslist of newdata; let i = index;">
