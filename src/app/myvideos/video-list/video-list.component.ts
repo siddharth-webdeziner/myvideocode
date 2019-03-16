@@ -18,6 +18,7 @@ export class VideoListComponent implements OnInit {
   auth;
   admin;
   textSearching;
+  afterloadshow;
   constructor(
     public videodataService: VideodataService,
     private router: Router,
@@ -32,6 +33,7 @@ export class VideoListComponent implements OnInit {
         this.admin = true;
       }
     }
+    this.afterloadshow = false;
     this.gettingVideoData();
     console.log("category", this.category);
   }
@@ -39,6 +41,7 @@ export class VideoListComponent implements OnInit {
   gettingVideoData(){
     this.videodataService.getVideoData().subscribe(data => {
       this.urlArr = data.videolist;
+      this.afterloadshow = true;
       this.latestSilderVideos();
     })
   }

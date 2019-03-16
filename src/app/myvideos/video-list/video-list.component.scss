@@ -24,8 +24,11 @@
     li{
         display: inline-block;
         vertical-align: top;
-        max-width: 25%;
+        max-width: 20%;
         padding: 0 5px;
+        @media screen and (max-width: 1160px) {
+            max-width: 25%;
+        }
         @media screen and (max-width: 990px) {
             max-width: 33.3%;
         }

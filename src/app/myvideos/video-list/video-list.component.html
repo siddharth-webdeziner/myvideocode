@@ -25,7 +25,7 @@
         </div>
       </section>
     </li>
-    <li class="viewAll" *ngIf='viewList' (click)="viewAll(category)">
+    <li class="viewAll" *ngIf='viewList && afterloadshow' (click)="viewAll(category)">
       <section>
         <span>View All</span>
       </section>
