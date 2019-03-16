@@ -1,5 +1,6 @@
+<app-loader *ngIf="loadingPage"></app-loader>
 <app-header></app-header>
-<div class="container-fluid container-top-spacing">
+<div class="container-fluid container-top-spacing" *ngIf="!loadingPage">
   <input type="text" [(ngModel)]="searchText" placeholder="Search video" class="searchVideos">
   <ul class="videoBox">
     <li *ngFor="let item of urlArr | filter : searchText" class="col-lg-2 col-md-3 col-sm-4">
@@ -17,4 +18,3 @@
     <li><h6>No Content Available</h6></li>
   </ul>
 </div>
-<!-- <app-footer></app-footer> -->

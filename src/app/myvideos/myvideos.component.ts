@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { VideodataService } from '../services/videodata.service';
 
 @Component({
@@ -27,18 +26,18 @@ export class MyvideosComponent implements OnInit {
   displayPopup: boolean;
   slideConfig;
   textSearched;
+  loadingPage;
   constructor(
     public sanitizer: DomSanitizer,
     private router: Router,
     private http: HttpClient, 
-    public videodataService: VideodataService,
-    private spinnerService: Ng4LoadingSpinnerService
+    public videodataService: VideodataService
   ) {
-    //this.spinnerService.show();
   }
 
   ngOnInit() {
     this.displayPopup = false;
+    this.loadingPage = true;
     this.auth = JSON.parse(localStorage.getItem('userObj'));
     if(this.auth){
       if(this.auth.username == 'siddharth'){
@@ -51,9 +50,10 @@ export class MyvideosComponent implements OnInit {
   gettingVideoData(){
     this.videodataService.getVideoData().subscribe(data => {
       this.urlArr = data.videolist;
+      setTimeout(_=>{this.loadingPage = false},1000);
     })
   }
-  getTotalAmt(){
+  getChange(){
     this.textSearched = this.searchText;
   }
 }
