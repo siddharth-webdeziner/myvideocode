@@ -137,3 +137,17 @@
 .myFeeds ion-list .input-wrapper{
 	align-items: baseline;
 }
+
+.searchVideos {
+    width: 100%;
+    max-width: 450px;
+    padding: 5px 10px;
+    margin: 0px auto 15px;
+    ;
+    display: block;
+    &:after {
+        clear: both;
+        display: block;
+        content: "";
+    }
+}

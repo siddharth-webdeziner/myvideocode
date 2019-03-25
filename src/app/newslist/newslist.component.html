@@ -2,6 +2,16 @@
 <app-header></app-header>
 <div class="container-fluid container-top-spacing" *ngIf="!loadingPage">
   <div class="newslists">
+    <input list="browsers" name="browser" (input)="getNews()" [(ngModel)]="searchNews" placeholder="News category" class="searchVideos">
+    <datalist id="browsers">
+      <option value="top-headlines">
+      <option value="world">
+      <option value="india">
+      <option value="sports">
+      <option value="entertainment">
+      <option value="techcrunch">
+      <option value="thehindu">
+    </datalist>
     <ul class="myFeeds">
       <li *ngFor="let newslist of newdata; let i = index;">
         <div (click)="newsDesc(i)">
